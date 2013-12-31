@@ -1,0 +1,9 @@
+As these go into your home directory we can't do a checkout to the current directory because there are files in the folder already.
+
+To get around this init an empty git repo 
+add the remote path 
+and then fetch
+
+git init
+git remote add origin PATH/TO/REPO
+git fetch
