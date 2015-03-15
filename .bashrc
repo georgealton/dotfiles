@@ -17,7 +17,7 @@ HISTFILESIZE=2000
 
 PS1="┌──[\t]─[\e[0;33m\u\e[0m on \e[0;34m\h\e[0m]─[\e[2;37m\w\e[0m]\n└─\$ >>>"
 
-eval "$(grunt --completion=bash)
+eval "$(grunt --completion=bash)"
 
 if [ -f /etc/arch-release ] ; then
 	alias upgrade='sudo pacman -Syu'
