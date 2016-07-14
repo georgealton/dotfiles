@@ -44,29 +44,24 @@ set background=dark
 colorscheme solarized
 set t_Co=256
 let g:gitgutter_sign_column_always = 1
+let g:gitgutter_realtime = 1
 autocmd! bufwritepost vimrc source ~/.vimrc
-
 set wildmenu
 set ruler
 set backspace=indent,eol,start
 set ignorecase 
 set smartcase
-
 set hlsearch 
 set incsearch 
-
 set cmdheight=2
 set history=1000
 set title
 set magic 
-
 set showmatch 
-
 set shiftwidth=8
 set tabstop=8
 set smarttab
-
-set statusline=%<%F%h%m%r%h%w%y\ %{&ff}\ %{strftime(\"%d/%m/%Y-%H:%M\")}%=\ col:%c%V\ ascii:%b\ pos:%o\ lin:%l\,%L\ %P
+let g:airline_powerline_fonts = 1
 set laststatus=2
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 autocmd VimEnter * NERDTree
