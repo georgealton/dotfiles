@@ -25,6 +25,7 @@ brew "awscli"
 
 brew "pyenv"
 brew "python"
+brew "pipx"
 brew "pipenv"
 brew "pre-commit"
 brew "go"
