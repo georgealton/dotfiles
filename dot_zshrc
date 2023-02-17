@@ -23,3 +23,9 @@ source $ZSH/oh-my-zsh.sh
 
 alias cat='bat'
 alias ls='exa'
+
+export PATH="$PATH:/Users/george.alton/.local/bin"
+
+autoload bashcompinit && bashcompinit
+autoload -Uz compinit && compinit
+complete -C '/usr/local/bin/aws_completer' aws

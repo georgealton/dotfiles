@@ -4,7 +4,6 @@ set updatetime=250
 syntax enable
 set foldmethod=syntax
 set background=dark
-set t_Co=256
 set wildmenu
 set ruler
 set backspace=indent,eol,start
