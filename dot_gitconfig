@@ -1,0 +1,52 @@
+[user]
+	email = georgealton@gmail.com
+	name = George Alton
+    signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILlGfYFxNZnNQ+5ked3k8KRPLEjh071QzXZNfAa4Zqbx
+
+
+[color]
+  ui = auto
+
+[tag]
+  # Sort tags as version numbers whenever applicable, so 1.10.2 is AFTER 1.2.0.
+  sort = version:refname
+
+[push]
+	default = simple
+	gpgSign = if-asked
+	autoSetupRemote = true
+
+
+[commit]
+	gpgsign = true
+
+[core]
+	editor = code --wait
+	# Global ignore file (not shared)
+  	excludesfile = ~/.gitignore_global
+
+[diff]
+	tool = vscode
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE
+
+[merge]
+	tool = vscode
+[mergetool "vscode"]
+	cmd = code --wait $MERGED
+
+[includeIf "gitdir:~/Work/"]
+	path = ~/Work/.gitconfig_include
+[fetch]
+	prune = true
+[init]
+	defaultBranch = main
+
+
+[gpg]
+  format = ssh
+
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+	allowedSignersFile = /Users/george.alton/.ssh/allowed_signers
+
