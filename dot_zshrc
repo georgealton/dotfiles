@@ -21,4 +21,5 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 
-alias cat='bat --paging=never'
+alias cat='bat'
+alias ls='exa'
