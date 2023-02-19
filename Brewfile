@@ -7,9 +7,10 @@ cask "discord"
 cask "iterm2"
 cask "visual-studio-code"
 cask "rectangle"
+cask "zoom"
 
+brew "antigen"
 brew "romkatv/powerlevel10k/powerlevel10k"
-
 brew "curl"
 brew "wget"
 brew "vim"
@@ -22,7 +23,6 @@ brew "docker"
 brew "chezmoi"
 
 brew "awscli"
-
 brew "pyenv"
 brew "python"
 brew "pipx"
