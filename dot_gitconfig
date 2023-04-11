@@ -1,8 +1,11 @@
 [user]
-	email = georgealton@gmail.com
-	name = George Alton
-    signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILlGfYFxNZnNQ+5ked3k8KRPLEjh071QzXZNfAa4Zqbx
+  email = galton@evertz.com
+  name = George Alton
+  signingkey = key::ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILlGfYFxNZnNQ+5ked3k8KRPLEjh071QzXZNfAa4Zqbx
 
+
+[url "ssh://git@github.com/"]
+  insteadOf = https://github.com/
 
 [color]
   ui = auto
@@ -12,41 +15,49 @@
   sort = version:refname
 
 [push]
-	default = simple
-	gpgSign = if-asked
-	autoSetupRemote = true
-
-
-[commit]
-	gpgsign = true
-
-[core]
-	editor = code --wait
-	# Global ignore file (not shared)
-  	excludesfile = ~/.gitignore_global
+  default = simple
+  gpgSign = if-asked
+  autoSetupRemote = true
 
 [diff]
-	tool = vscode
-[difftool "vscode"]
-	cmd = code --wait --diff $LOCAL $REMOTE
+    colorMoved = default
 
-[merge]
-	tool = vscode
-[mergetool "vscode"]
-	cmd = code --wait $MERGED
+[commit]
+  gpgsign = true
 
-[includeIf "gitdir:~/Work/"]
-	path = ~/Work/.gitconfig_include
+[core]
+    excludesfile = ~/.gitignore_global
+    pager = delta
+
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+    side-by-side = true
+
+[interactive]
+    diffFilter = delta --color-only
+
+[includeIf "gitdir:~/work/"]
+  path = ~/work/.gitconfig_include
+
 [fetch]
-	prune = true
-[init]
-	defaultBranch = main
+  prune = true
 
+[init]
+  defaultBranch = main
 
 [gpg]
   format = ssh
 
 [gpg "ssh"]
   program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
-	allowedSignersFile = /Users/george.alton/.ssh/allowed_signers
+  allowedSignersFile = /Users/george.alton/.ssh/allowed_signers
 
+[help]
+  autoCorrect = prompt
+
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
