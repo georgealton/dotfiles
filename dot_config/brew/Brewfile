@@ -4,7 +4,7 @@ tap "homebrew/cask-fonts"
 # Casks
 
 # TTY
-cask "iterm2"
+cask "alacritty"
 
 # Fonts
 cask "font-fira-code-nerd-font"
@@ -13,10 +13,13 @@ cask "font-fira-code-nerd-font"
 cask "via"
 cask "keycastr"
 
+## Webcam
+cask "elgato-camera-hub"
+
 ## Browser
 cask "firefox"
 
-## Music
+## Media Players
 cask "spotify"
 cask "vlc"
 
@@ -29,6 +32,7 @@ cask "slack"
 cask "microsoft-teams"
 cask "discord"
 cask "zoom"
+cask "obs"
 
 ## Text Editors
 cask "macdown"
@@ -46,15 +50,17 @@ brew "chezmoi"
 brew "antigen"
 
 ## Command Line Tools
-brew "dog" # dig
-brew "bat" # cat
-brew "exa" # ls
-brew "fd" # find
-brew "fzf" # fuzzy search
-brew "ripgrep" # grep
-brew "glow" # markdown reader
-brew "tmux" # session manager
+brew "dog"      # dig
+brew "bat"      # cat
+brew "exa"      # ls
+brew "fd"       # find
+brew "fzf"      # fuzzy search
+brew "ripgrep"  # grep
+brew "glow"     # markdown reader
+brew "tmux"     # session manager
 brew "graphviz" # graph vizualizer
+brew "zoxide"   # cd with memory z
+brew "starship" # prompt
 
 ## Text Editors
 brew "neovim"
@@ -107,3 +113,4 @@ brew "docker"
 brew "make"
 brew "spectral-cli"
 brew "exercism"
+brew "lazygit"

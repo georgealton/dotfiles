@@ -8,4 +8,3 @@ require('user.lsp')
 require('user.statusline')
 require('user.completion')
 require('user.bufferline')
-
