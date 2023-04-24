@@ -1,22 +1,19 @@
 # LOCALE
-export LC_ALL=en_GB.UTF-8
-export LANG=en_GB.UTF-8
+export LC_ALL="en_GB.UTF-8"
+export LANG="en_GB.UTF-8"
 
 export EDITOR="nvim"
 export VISUAL="$EDITOR"
 
-export HISTFILE="$XDG_STATE_HOME/zsh/history"
-export HISTSIZE=10000
-export SAVEHIST=10000
-
-# I set all the XDG dirs as some software uses different directories on
-# macos and linux
-#
 # XDG DIRS
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_STATE_HOME="$HOME/.local/state"
+
+export HISTFILE="$XDG_STATE_HOME/zsh/history"
+export HISTSIZE=10000
+export SAVEHIST=10000
 
 export LESSHISTFILE="$XDG_STATE_HOME/less/history"
 export TERMINFO="${XDG_DATA_HOME}"/terminfo

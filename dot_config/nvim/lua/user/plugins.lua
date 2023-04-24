@@ -2,29 +2,24 @@ vim.cmd.packadd('packer.nvim')
 
 return require('packer').startup(function(use)
     use { 'tpope/vim-surround' }
+    use { 'tpope/vim-commentary' }
     use { 'wbthomason/packer.nvim' }
     use { 'nvim-tree/nvim-web-devicons' }
     use { 'nvim-tree/nvim-tree.lua' }
     use {
-        'junegunn/fzf',
-        dir = '~/.fzf',
-        run = './install --all'
-    }
-    use { 'junegunn/fzf.vim' }
-    use { 'tpope/vim-commentary' }
-    use {
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate"
     }
-
     use {
         'nvim-lualine/lualine.nvim',
     }
-
+    use {
+        'nvim-telescope/telescope.nvim',
+        requires = { 'nvim-lua/plenary.nvim' }
+    }
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v2.x',
-
         requires = {
             -- LSP Support
             { 'neovim/nvim-lspconfig' },
@@ -56,10 +51,6 @@ return require('packer').startup(function(use)
     }
 
     -- Theme
-    use {
-        'dracula/vim',
-        as = 'dracula'
-    }
     use { "catppuccin/nvim", as = "catppuccin" }
     use {
         'akinsho/bufferline.nvim',

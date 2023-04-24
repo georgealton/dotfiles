@@ -1,7 +1,7 @@
 vim.g.mapleader = " "
 
-vim.keymap.set("n", "<C-P>", ":Files<CR>")
-vim.keymap.set("n", "<C-?>", ":Comands<CR>")
+vim.keymap.set("n", "<C-P>", ":Telescope find_files<CR>")
+vim.keymap.set("n", "<C-?>", ":Telescope commands<CR>")
 vim.keymap.set("n", "<C-w>-", ":split<cr>")
 vim.keymap.set("n", "<leader>-", ":split<cr>")
 vim.keymap.set("n", "<C-w>|", ":vsplit<cr>")
