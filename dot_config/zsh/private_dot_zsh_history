@@ -1,0 +1,33 @@
+ls
+fzff 
+fzf
+ls
+echo "Hello"
+ls
+ls 
+cd .config/zsh/
+ls
+ls -la
+cat .zsh_history
+cat $XDG_STATE_HOME/zsh/history
+rm .zsh_history
+chezmoi rm .zsh_history
+chezmoi status
+chezmoi add .zshenv
+chezmoi add ../nvim
+git add. 
+git add . 
+git commit -m 'move to telescope' 
+gp 
+upgrade-tooling
+upgrade-tooling
+ls
+vim .config/zsh/user/fzf.zsh
+rm .config/zsh/user/fzf.zsh
+cat .fzf.zsh
+rm .fzf.zsh
+ks
+ls
+chezmoi status
+chezmoi rm .config/zsh/user/fzf.zsh
+chezmoi cd 

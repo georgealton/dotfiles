@@ -1,7 +1,16 @@
 export BREW_PREFIX=$(brew --prefix)
 
-. ${BREW_PREFIX}/share/antigen/antigen.zsh
-antigen init ${XDG_CONFIG_HOME}/antigen/antigenrc
+# set these in interactive shells
+export HISTFILE="$XDG_STATE_HOME/zsh/history"
+export HISTSIZE=10000
+export SAVEHIST=10000
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_REDUCE_BLANKS
+setopt INC_APPEND_HISTORY_TIME
+
+. "${BREW_PREFIX}/share/antigen/antigen.zsh"
+antigen init "${XDG_CONFIG_HOME}/antigen/antigenrc"
 
 # Completions
 COMPLETION_WAITING_DOTS="true"
@@ -13,7 +22,6 @@ eval "$(op completion zsh)"; compdef _op op
 eval "$(register-python-argcomplete pipx)"
 complete -o nospace -C $BREW_PREFIX/bin/terraform terraform
 
-
 for custom in "${ZDOTDIR}"/user/**/*.zsh(N.); do
     source "$custom"
 done
@@ -24,6 +32,4 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(rbenv init - zsh)"
 eval "$(zoxide init zsh)"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(starship init zsh)"
