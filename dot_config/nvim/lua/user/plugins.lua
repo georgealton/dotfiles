@@ -1,60 +1,36 @@
-vim.cmd.packadd('packer.nvim')
-
-return require('packer').startup(function(use)
-    use { 'tpope/vim-surround' }
-    use { 'tpope/vim-commentary' }
-    use { 'wbthomason/packer.nvim' }
-    use { 'nvim-tree/nvim-web-devicons' }
-    use { 'nvim-tree/nvim-tree.lua' }
-    use {
-        "nvim-treesitter/nvim-treesitter",
-        run = ":TSUpdate"
-    }
-    use {
-        'nvim-lualine/lualine.nvim',
-    }
-    use {
-        'nvim-telescope/telescope.nvim',
-        requires = { 'nvim-lua/plenary.nvim' }
-    }
-    use {
+return require('lazy').setup({
+    'tpope/vim-surround',
+    'tpope/vim-commentary',
+    'nvim-tree/nvim-web-devicons',
+    'nvim-tree/nvim-tree.lua',
+    'nvim-lualine/lualine.nvim',
+    { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+    { 'nvim-telescope/telescope.nvim',   dependencies = { 'nvim-lua/plenary.nvim' } },
+    {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v2.x',
-        requires = {
-            -- LSP Support
+        dependencies = {
             { 'neovim/nvim-lspconfig' },
-            {
-                'williamboman/mason.nvim',
-                run = ":MasonUpdate"
-            },
+            { 'williamboman/mason.nvim',          build = ":MasonUpdate" },
             { 'williamboman/mason-lspconfig.nvim' },
-
-            -- Autocompletion
             { 'hrsh7th/nvim-cmp' },
             { 'hrsh7th/cmp-nvim-lsp' },
             { 'hrsh7th/cmp-buffer' },
             { 'hrsh7th/cmp-path' },
             { 'hrsh7th/cmp-nvim-lua' },
             { 'saadparwaiz1/cmp_luasnip' },
-
-            -- Snippets
             { 'L3MON4D3/LuaSnip' },
         }
-    }
-
-    use {
+    },
+    {
         'lewis6991/gitsigns.nvim',
-        requires = {
-            'nvim-lua/plenary.nvim'
-        },
+        dependencies = { 'nvim-lua/plenary.nvim' },
         config = function() require('gitsigns').setup() end
-    }
-
-    -- Theme
-    use { "catppuccin/nvim", as = "catppuccin" }
-    use {
+    },
+    { "catppuccin/nvim", as = "catppuccin" },
+    {
         'akinsho/bufferline.nvim',
         tag = "v3.*",
-        requires = 'nvim-tree/nvim-web-devicons'
+        dependencies = 'nvim-tree/nvim-web-devicons'
     }
-end)
+})

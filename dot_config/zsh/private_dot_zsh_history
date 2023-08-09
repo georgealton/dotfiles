@@ -31,3 +31,34 @@ ls
 chezmoi status
 chezmoi rm .config/zsh/user/fzf.zsh
 chezmoi cd 
+ls .config/zsh/
+ls
+ls .config/zsh/user
+cd .config/zsh/user
+ls
+cd ..
+ls
+ls -la
+cat .zsh_history
+echo $HISTFILE
+cat .zshenv
+cat .zprofile
+cat .zshrc
+vim .zshrc
+cd user
+ls
+cat *
+vim /etc/zshrc
+vim 
+cd ..
+vim 
+vim /etc/zshrc
+vim /etc/zprofile
+vim /etc/zshrc
+vim /etc/zshrc
+vim .zshrc
+chezmoi sta
+chezmoi status
+chezmoi add .config/zsh
+chezmoi add ~/.config/zsh
+chezmoi cd 

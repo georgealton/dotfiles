@@ -1,5 +1,7 @@
 # Taps
 tap "homebrew/cask-fonts"
+tap "1password/tap"
+tap "aws/tap"
 
 # Casks
 
@@ -18,6 +20,7 @@ cask "elgato-camera-hub"
 
 ## Browser
 cask "firefox"
+cask "thunderbird"
 
 ## Media Players
 cask "spotify"
@@ -36,12 +39,19 @@ cask "obs"
 
 ## Text Editors
 cask "macdown"
+cask "obsidian"
 
 ## Dev
 cask "visual-studio-code"
 
 ## Layout
 cask "rectangle"
+
+## Gaming
+cask "steam"
+
+cask "kap"
+
 
 # Formula
 
@@ -83,6 +93,7 @@ brew "git-delta"
 brew "awscli"
 brew "cfn-lint"
 brew "rain"
+brew "aws-sam-cli"
 
 ## Languages and Language Tools
 

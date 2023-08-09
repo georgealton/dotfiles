@@ -87,6 +87,14 @@ end
 
 lspconfig.cloudformation.setup {}
 
+
+configs.iam = {
+    default_config = {
+        cmd = { 'iam-lsp' }
+    }
+
+}
+
 vim.diagnostic.config({
     virtual_text = true
 })

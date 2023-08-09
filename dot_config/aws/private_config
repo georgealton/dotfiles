@@ -1,0 +1,463 @@
+[default]
+region = useast2
+output = json
+
+[profile Evertz-Production-AMIs.EvertzProjectProductionAMI]
+sso_start_url = https://evertz.awsapps.com/start
+sso_region = ca-central-1
+sso_account_name = Evertz Production AMIs
+sso_account_id = 634606266165
+sso_role_name = EvertzProjectProductionAMI
+region = ca-central-1
+credential_process = aws-sso-util credential-process --profile Evertz-Production-AMIs.EvertzProjectProductionAMI
+sso_auto_populated = true
+
+[profile Evertz-root.AdministratorAccess]
+sso_start_url = https://evertz.awsapps.com/start
+sso_region = ca-central-1
+sso_account_name = Evertz root
+sso_account_id = 667514737571
+sso_role_name = AdministratorAccess
+region = ca-central-1
+credential_process = aws-sso-util credential-process --profile Evertz-root.AdministratorAccess
+sso_auto_populated = true
+
+[profile evertz.io-continuous-delivery.EvertzIOAdmin]
+sso_start_url = https://evertz.awsapps.com/start
+sso_region = ca-central-1
+sso_account_name = evertz.io continuous delivery
+sso_account_id = 737710810646
+sso_role_name = EvertzIOAdmin
+region = ca-central-1
+credential_process = aws-sso-util credential-process --profile evertz.io-continuous-delivery.EvertzIOAdmin
+sso_auto_populated = true
+
+[profile evertz.io-continuous-delivery.EvertzIODeploymentMonitoring]
+sso_start_url = https://evertz.awsapps.com/start
+sso_region = ca-central-1
+sso_account_name = evertz.io continuous delivery
+sso_account_id = 737710810646
+sso_role_name = EvertzIODeploymentMonitoring
+region = ca-central-1
+credential_process = aws-sso-util credential-process --profile evertz.io-continuous-delivery.EvertzIODeploymentMonitoring
+sso_auto_populated = true
+
+[profile evertz.io-deployment-events.EvertzIOAdmin]
+sso_start_url = https://evertz.awsapps.com/start
+sso_region = ca-central-1
+sso_account_name = evertz.io deployment events
+sso_account_id = 164354220316
+sso_role_name = EvertzIOAdmin
+region = ca-central-1
+credential_process = aws-sso-util credential-process --profile evertz.io-deployment-events.EvertzIOAdmin
+sso_auto_populated = true
+
+[profile evertz.io-deployment-events.EvertzIOEventsReadyOnly]
+sso_start_url = https://evertz.awsapps.com/start
+sso_region = ca-central-1
+sso_account_name = evertz.io deployment events
+sso_account_id = 164354220316
+sso_role_name = EvertzIOEventsReadyOnly
+region = ca-central-1
+credential_process = aws-sso-util credential-process --profile evertz.io-deployment-events.EvertzIOEventsReadyOnly
+sso_auto_populated = true
+
+[profile evertz.io-dev-account.EvertzIOAdmin]
+sso_start_url = https://evertz.awsapps.com/start
+sso_region = ca-central-1
+sso_account_name = evertz.io dev account
+sso_account_id = 944486121133
+sso_role_name = EvertzIOAdmin
+region = ca-central-1
+credential_process = aws-sso-util credential-process --profile evertz.io-dev-account.EvertzIOAdmin
+sso_auto_populated = true
+
+[profile evertz.io-dev-account.EvertzIODeveloper]
+sso_start_url = https://evertz.awsapps.com/start
+sso_region = ca-central-1
+sso_account_name = evertz.io dev account
+sso_account_id = 944486121133
+sso_role_name = EvertzIODeveloper
+region = ca-central-1
+credential_process = aws-sso-util credential-process --profile evertz.io-dev-account.EvertzIODeveloper
+sso_auto_populated = true
+
+[profile evertz.io-logging.EvertzIOAdmin]
+sso_start_url = https://evertz.awsapps.com/start
+sso_region = ca-central-1
+sso_account_name = evertz.io logging
+sso_account_id = 725804437606
+sso_role_name = EvertzIOAdmin
+region = ca-central-1
+credential_process = aws-sso-util credential-process --profile evertz.io-logging.EvertzIOAdmin
+sso_auto_populated = true
+
+[profile evertz.io-management-account.EvertzIOAdmin]
+sso_start_url = https://evertz.awsapps.com/start
+sso_region = ca-central-1
+sso_account_name = evertz.io management account
+sso_account_id = 431588785234
+sso_role_name = EvertzIOAdmin
+region = ca-central-1
+credential_process = aws-sso-util credential-process --profile evertz.io-management-account.EvertzIOAdmin
+sso_auto_populated = true
+
+[profile evertz.io-prod-account.EvertzIOAdmin]
+sso_start_url = https://evertz.awsapps.com/start
+sso_region = ca-central-1
+sso_account_name = evertz.io prod account
+sso_account_id = 644572837682
+sso_role_name = EvertzIOAdmin
+region = ca-central-1
+credential_process = aws-sso-util credential-process --profile evertz.io-prod-account.EvertzIOAdmin
+sso_auto_populated = true
+
+[profile evertz.io-prod-account.EvertzIODeveloperReadOnly]
+sso_start_url = https://evertz.awsapps.com/start
+sso_region = ca-central-1
+sso_account_name = evertz.io prod account
+sso_account_id = 644572837682
+sso_role_name = EvertzIODeveloperReadOnly
+region = ca-central-1
+credential_process = aws-sso-util credential-process --profile evertz.io-prod-account.EvertzIODeveloperReadOnly
+sso_auto_populated = true
+
+[profile evertz.io-test-account.EvertzIOAdmin]
+sso_start_url = https://evertz.awsapps.com/start
+sso_region = ca-central-1
+sso_account_name = evertz.io test account
+sso_account_id = 837071653381
+sso_role_name = EvertzIOAdmin
+region = ca-central-1
+credential_process = aws-sso-util credential-process --profile evertz.io-test-account.EvertzIOAdmin
+sso_auto_populated = true
+
+[profile evertz.io-test-account.EvertzIODeveloperReadOnly]
+sso_start_url = https://evertz.awsapps.com/start
+sso_region = ca-central-1
+sso_account_name = evertz.io test account
+sso_account_id = 837071653381
+sso_role_name = EvertzIODeveloperReadOnly
+region = ca-central-1
+credential_process = aws-sso-util credential-process --profile evertz.io-test-account.EvertzIODeveloperReadOnly
+sso_auto_populated = true
+
+[profile mock-tenant-aws-account-1.EvertzIOAdmin]
+sso_start_url = https://evertz.awsapps.com/start
+sso_region = ca-central-1
+sso_account_name = mock tenant aws account 1
+sso_account_id = 958669804694
+sso_role_name = EvertzIOAdmin
+region = ca-central-1
+credential_process = aws-sso-util credential-process --profile mock-tenant-aws-account-1.EvertzIOAdmin
+sso_auto_populated = true
+
+[profile mock-tenant-aws-account-1.EvertzIOMockCustomerAccess]
+sso_start_url = https://evertz.awsapps.com/start
+sso_region = ca-central-1
+sso_account_name = mock tenant aws account 1
+sso_account_id = 958669804694
+sso_role_name = EvertzIOMockCustomerAccess
+region = ca-central-1
+credential_process = aws-sso-util credential-process --profile mock-tenant-aws-account-1.EvertzIOMockCustomerAccess
+sso_auto_populated = true
+
+[profile mock-tenant-sandbox-account.EvertzIOAdmin]
+sso_start_url = https://evertz.awsapps.com/start
+sso_region = ca-central-1
+sso_account_name = mock tenant sandbox account
+sso_account_id = 670153681517
+sso_role_name = EvertzIOAdmin
+region = ca-central-1
+credential_process = aws-sso-util credential-process --profile mock-tenant-sandbox-account.EvertzIOAdmin
+sso_auto_populated = true
+
+[profile mock-tenant-sandbox-account.EvertzIOMockCustomerAccess]
+sso_start_url = https://evertz.awsapps.com/start
+sso_region = ca-central-1
+sso_account_name = mock tenant sandbox account
+sso_account_id = 670153681517
+sso_role_name = EvertzIOMockCustomerAccess
+region = ca-central-1
+credential_process = aws-sso-util credential-process --profile mock-tenant-sandbox-account.EvertzIOMockCustomerAccess
+sso_auto_populated = true
+
+[profile mock-tenant-sre.EvertzIOAdmin]
+sso_start_url = https://evertz.awsapps.com/start
+sso_region = ca-central-1
+sso_account_name = mock tenant sre
+sso_account_id = 783184814363
+sso_role_name = EvertzIOAdmin
+region = ca-central-1
+credential_process = aws-sso-util credential-process --profile mock-tenant-sre.EvertzIOAdmin
+sso_auto_populated = true
+
+[profile QA-Account.EvertzSubAccountAdmin]
+sso_start_url = https://evertz.awsapps.com/start
+sso_region = ca-central-1
+sso_account_name = QA Account
+sso_account_id = 705413153674
+sso_role_name = EvertzSubAccountAdmin
+region = ca-central-1
+credential_process = aws-sso-util credential-process --profile QA-Account.EvertzSubAccountAdmin
+sso_auto_populated = true
+
+[profile QA-Account.QARootBucketAccessPermissionSet]
+sso_start_url = https://evertz.awsapps.com/start
+sso_region = ca-central-1
+sso_account_name = QA Account
+sso_account_id = 705413153674
+sso_role_name = QARootBucketAccessPermissionSet
+region = ca-central-1
+credential_process = aws-sso-util credential-process --profile QA-Account.QARootBucketAccessPermissionSet
+sso_auto_populated = true
+
+[profile core-security.EvertzIOAdmin]
+sso_start_url = https://evertz.awsapps.com/start
+sso_region = ca-central-1
+sso_account_name = core-security
+sso_account_id = 979115791993
+sso_role_name = EvertzIOAdmin
+region = ca-central-1
+credential_process = aws-sso-util credential-process --profile core-security.EvertzIOAdmin
+sso_auto_populated = true
+
+[profile core-baselines.EvertzIOAdmin]
+sso_start_url = https://evertz.awsapps.com/start
+sso_region = ca-central-1
+sso_account_name = core-baselines
+sso_account_id = 998441374879
+sso_role_name = EvertzIOAdmin
+region = ca-central-1
+credential_process = aws-sso-util credential-process --profile core-baselines.EvertzIOAdmin
+sso_auto_populated = true
+
+[profile core-identity.EvertzIOAdmin]
+sso_start_url = https://evertz.awsapps.com/start
+sso_region = ca-central-1
+sso_account_name = core-identity
+sso_account_id = 683233924343
+sso_role_name = EvertzIOAdmin
+region = ca-central-1
+credential_process = aws-sso-util credential-process --profile core-identity.EvertzIOAdmin
+sso_auto_populated = true
+
+[profile Demo-Master-Account.AdministratorAccess]
+sso_start_url = https://evertz.awsapps.com/start
+sso_region = ca-central-1
+sso_account_name = Demo Master Account
+sso_account_id = 023017925022
+sso_role_name = AdministratorAccess
+region = ca-central-1
+credential_process = aws-sso-util credential-process --profile Demo-Master-Account.AdministratorAccess
+sso_auto_populated = true
+
+[profile Mediator-Build.EvertzSubAccountAdmin]
+sso_start_url = https://evertz.awsapps.com/start
+sso_region = ca-central-1
+sso_account_name = Mediator Build
+sso_account_id = 234004708324
+sso_role_name = EvertzSubAccountAdmin
+region = ca-central-1
+credential_process = aws-sso-util credential-process --profile Mediator-Build.EvertzSubAccountAdmin
+sso_auto_populated = true
+
+[profile Auto-System-Deploy.AdministratorAccess]
+sso_start_url = https://evertz.awsapps.com/start
+sso_region = ca-central-1
+sso_account_name = Auto System Deploy
+sso_account_id = 756102660125
+sso_role_name = AdministratorAccess
+region = ca-central-1
+credential_process = aws-sso-util credential-process --profile Auto-System-Deploy.AdministratorAccess
+sso_auto_populated = true
+
+[profile Caption-Conductor.AdministratorAccess]
+sso_start_url = https://evertz.awsapps.com/start
+sso_region = ca-central-1
+sso_account_name = Caption Conductor
+sso_account_id = 145254258164
+sso_role_name = AdministratorAccess
+region = ca-central-1
+credential_process = aws-sso-util credential-process --profile Caption-Conductor.AdministratorAccess
+sso_auto_populated = true
+
+[profile Cloudeasy.AdministratorAccess]
+sso_start_url = https://evertz.awsapps.com/start
+sso_region = ca-central-1
+sso_account_name = Cloudeasy
+sso_account_id = 723840013119
+sso_role_name = AdministratorAccess
+region = ca-central-1
+credential_process = aws-sso-util credential-process --profile Cloudeasy.AdministratorAccess
+sso_auto_populated = true
+
+[profile CompressionAndMonitoring.AdministratorAccess]
+sso_start_url = https://evertz.awsapps.com/start
+sso_region = ca-central-1
+sso_account_name = CompressionAndMonitoring
+sso_account_id = 115801795963
+sso_role_name = AdministratorAccess
+region = ca-central-1
+credential_process = aws-sso-util credential-process --profile CompressionAndMonitoring.AdministratorAccess
+sso_auto_populated = true
+
+[profile Dream-Catcher.AdministratorAccess]
+sso_start_url = https://evertz.awsapps.com/start
+sso_region = ca-central-1
+sso_account_name = Dream Catcher
+sso_account_id = 747626990868
+sso_role_name = AdministratorAccess
+region = ca-central-1
+credential_process = aws-sso-util credential-process --profile Dream-Catcher.AdministratorAccess
+sso_auto_populated = true
+
+[profile Evertz-Integrated-Testing.AdministratorAccess]
+sso_start_url = https://evertz.awsapps.com/start
+sso_region = ca-central-1
+sso_account_name = Evertz Integrated Testing
+sso_account_id = 117675409635
+sso_role_name = AdministratorAccess
+region = ca-central-1
+credential_process = aws-sso-util credential-process --profile Evertz-Integrated-Testing.AdministratorAccess
+sso_auto_populated = true
+
+[profile Evertz-Production-AMIs.AdministratorAccess]
+sso_start_url = https://evertz.awsapps.com/start
+sso_region = ca-central-1
+sso_account_name = Evertz Production AMIs
+sso_account_id = 634606266165
+sso_role_name = AdministratorAccess
+region = ca-central-1
+credential_process = aws-sso-util credential-process --profile Evertz-Production-AMIs.AdministratorAccess
+sso_auto_populated = true
+
+[profile Fulcrum-Team.AdministratorAccess]
+sso_start_url = https://evertz.awsapps.com/start
+sso_region = ca-central-1
+sso_account_name = Fulcrum Team
+sso_account_id = 584321324242
+sso_role_name = AdministratorAccess
+region = ca-central-1
+credential_process = aws-sso-util credential-process --profile Fulcrum-Team.AdministratorAccess
+sso_auto_populated = true
+
+[profile Magnum.AdministratorAccess]
+sso_start_url = https://evertz.awsapps.com/start
+sso_region = ca-central-1
+sso_account_name = Magnum
+sso_account_id = 715374485122
+sso_role_name = AdministratorAccess
+region = ca-central-1
+credential_process = aws-sso-util credential-process --profile Magnum.AdministratorAccess
+sso_auto_populated = true
+
+[profile Multiviewer.AdministratorAccess]
+sso_start_url = https://evertz.awsapps.com/start
+sso_region = ca-central-1
+sso_account_name = Multiviewer
+sso_account_id = 291927736267
+sso_role_name = AdministratorAccess
+region = ca-central-1
+credential_process = aws-sso-util credential-process --profile Multiviewer.AdministratorAccess
+sso_auto_populated = true
+
+[profile Overture-RT-QA.AdministratorAccess]
+sso_start_url = https://evertz.awsapps.com/start
+sso_region = ca-central-1
+sso_account_name = Overture RT QA
+sso_account_id = 636142274398
+sso_role_name = AdministratorAccess
+region = ca-central-1
+credential_process = aws-sso-util credential-process --profile Overture-RT-QA.AdministratorAccess
+sso_auto_populated = true
+
+[profile Overture-RT.AdministratorAccess]
+sso_start_url = https://evertz.awsapps.com/start
+sso_region = ca-central-1
+sso_account_name = Overture RT
+sso_account_id = 230738312514
+sso_role_name = AdministratorAccess
+region = ca-central-1
+credential_process = aws-sso-util credential-process --profile Overture-RT.AdministratorAccess
+sso_auto_populated = true
+
+[profile Projecst-PokerGOLive-File-Based.AdministratorAccess]
+sso_start_url = https://evertz.awsapps.com/start
+sso_region = ca-central-1
+sso_account_name = Projecst PokerGOLive File Based
+sso_account_id = 351341742867
+sso_role_name = AdministratorAccess
+region = ca-central-1
+credential_process = aws-sso-util credential-process --profile Projecst-PokerGOLive-File-Based.AdministratorAccess
+sso_auto_populated = true
+
+[profile core-audit-logs.EvertzIOAdmin]
+sso_start_url = https://evertz.awsapps.com/start
+sso_region = ca-central-1
+sso_account_name = core-audit-logs
+sso_account_id = 197136575990
+sso_role_name = EvertzIOAdmin
+region = ca-central-1
+credential_process = aws-sso-util credential-process --profile core-audit-logs.EvertzIOAdmin
+sso_auto_populated = true
+
+[profile core-security.EvertzIOAdminSecurity]
+sso_start_url = https://evertz.awsapps.com/start
+sso_region = ca-central-1
+sso_account_name = core-security
+sso_account_id = 979115791993
+sso_role_name = EvertzIOAdminSecurity
+region = ca-central-1
+credential_process = aws-sso-util credential-process --profile core-security.EvertzIOAdminSecurity
+sso_auto_populated = true
+
+[profile core-domains.EvertzIOAdmin]
+sso_start_url = https://evertz.awsapps.com/start
+sso_region = ca-central-1
+sso_account_name = core-domains
+sso_account_id = 956431771051
+sso_role_name = EvertzIOAdmin
+region = ca-central-1
+credential_process = aws-sso-util credential-process --profile core-domains.EvertzIOAdmin
+sso_auto_populated = true
+
+[profile service-authorization-dev.EvertzIOAdmin]
+sso_start_url = https://evertz.awsapps.com/start
+sso_region = ca-central-1
+sso_account_name = service-authorization-dev
+sso_account_id = 188754722695
+sso_role_name = EvertzIOAdmin
+region = ca-central-1
+credential_process = aws-sso-util credential-process --profile service-authorization-dev.EvertzIOAdmin
+sso_auto_populated = true
+
+[profile service-authorization-prod.EvertzIOAdmin]
+sso_start_url = https://evertz.awsapps.com/start
+sso_region = ca-central-1
+sso_account_name = service-authorization-prod
+sso_account_id = 718600867702
+sso_role_name = EvertzIOAdmin
+region = ca-central-1
+credential_process = aws-sso-util credential-process --profile service-authorization-prod.EvertzIOAdmin
+sso_auto_populated = true
+
+[profile service-authorization-test.EvertzIOAdmin]
+sso_start_url = https://evertz.awsapps.com/start
+sso_region = ca-central-1
+sso_account_name = service-authorization-test
+sso_account_id = 372528401834
+sso_role_name = EvertzIOAdmin
+region = ca-central-1
+credential_process = aws-sso-util credential-process --profile service-authorization-test.EvertzIOAdmin
+sso_auto_populated = true
+
+[profile Mediator-R&D.EvertzIOAdmin]
+sso_start_url = https://evertz.awsapps.com/start
+sso_region = ca-central-1
+sso_account_name = Mediator R&D
+sso_account_id = 537376033299
+sso_role_name = EvertzIOAdmin
+region = ca-central-1
+credential_process = aws-sso-util credential-process --profile 'Mediator-R&D.EvertzIOAdmin'
+sso_auto_populated = true

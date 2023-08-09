@@ -1,17 +1,17 @@
 upgrade-tooling (){
-    printf "Brew Update"
+    printf "Brew\n"
     brew bundle install --quiet
     # brew bundle --cleanup --quiet
 
-    printf "NVIM Update\n"
+    printf "NVim\n"
 
     # MasonUpdate doesn't pull in new LSPs
-    for command in 'PackerSync' 'MasonUpdate' 'TSUpdate'; do
-        printf "%s %s \n" $command $(nvim --headless +$command +qa)
+    for plugin_update_command in 'Lazy! sync' 'MasonUpdate' 'TSUpdate'; do
+        nvim --headless "+$plugin_update_command" "+qa"
     done
 
     # printf "Tmux"
 
-    printf "ZSH Plugins"
+    printf "ZSH Plugins\n"
     antigen update
 }
