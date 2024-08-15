@@ -1,7 +1,8 @@
 vim.g.mapleader = " "
 
-vim.keymap.set("n", "<C-P>", ":Telescope find_files<CR>")
-vim.keymap.set("n", "<C-?>", ":Telescope commands<CR>")
+vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>")
+vim.keymap.set("n", "<leader>fg", ":Telescope live_grep<CR>")
+
 vim.keymap.set("n", "<C-w>-", ":split<cr>")
 vim.keymap.set("n", "<leader>-", ":split<cr>")
 vim.keymap.set("n", "<C-w>|", ":vsplit<cr>")

@@ -1,7 +1,11 @@
-export BREW_PREFIX=$(brew --prefix)
+export PATH_PREFIX=/usr
+if command -v brew; then
+    export PATH_PREFIX=$(brew --prefix)
+fi
 
 # set these in interactive shells
 export HISTFILE="$XDG_STATE_HOME/zsh/history"
+[ ! -d ${XDG_STATE_HOME}/zsh ] && mkdir -p "$XDG_STATE_HOME/zsh"
 export HISTSIZE=10000
 export SAVEHIST=10000
 setopt HIST_IGNORE_ALL_DUPS
@@ -9,18 +13,18 @@ setopt HIST_SAVE_NO_DUPS
 setopt HIST_REDUCE_BLANKS
 setopt INC_APPEND_HISTORY_TIME
 
-. "${BREW_PREFIX}/share/antigen/antigen.zsh"
-antigen init "${XDG_CONFIG_HOME}/antigen/antigenrc"
+. "${PATH_PREFIX}/share/zsh-antidote/antidote.zsh"
+antidote load
 
 # Completions
 COMPLETION_WAITING_DOTS="true"
-FPATH="$BREW_PREFIX/share/${ZDOTDIR}/site-functions:${FPATH}"
+FPATH="$PATH_PREFIX/share/${ZDOTDIR}/site-functions:${FPATH}"
 autoload -Uz compinit && compinit
 autoload bashcompinit && bashcompinit
-complete -C "${BREW_PREFIX}/bin/aws_completer" aws
+complete -C "${PATH_PREFIX}/bin/aws_completer" aws
 eval "$(op completion zsh)"; compdef _op op
 eval "$(register-python-argcomplete pipx)"
-complete -o nospace -C $BREW_PREFIX/bin/terraform terraform
+complete -o nospace -C $PATH_PREFIX/bin/terraform terraform
 
 for custom in "${ZDOTDIR}"/user/**/*.zsh(N.); do
     source "$custom"
@@ -29,7 +33,12 @@ done
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PYENV_ROOT/bin:$PATH"
 
+if command -v npm > /dev/null; then
+    export PATH="$(npm config get prefix)/bin:$PATH"
+fi
+
 eval "$(pyenv init -)"
 eval "$(rbenv init - zsh)"
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
+

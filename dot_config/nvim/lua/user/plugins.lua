@@ -1,6 +1,7 @@
 return require('lazy').setup({
-    'tpope/vim-surround',
     'tpope/vim-commentary',
+    'tpope/vim-fugitive',
+    'folke/trouble.nvim',
     'nvim-tree/nvim-web-devicons',
     'nvim-tree/nvim-tree.lua',
     'nvim-lualine/lualine.nvim',
@@ -28,9 +29,4 @@ return require('lazy').setup({
         config = function() require('gitsigns').setup() end
     },
     { "catppuccin/nvim", as = "catppuccin" },
-    {
-        'akinsho/bufferline.nvim',
-        tag = "v3.*",
-        dependencies = 'nvim-tree/nvim-web-devicons'
-    }
 })

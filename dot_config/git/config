@@ -50,8 +50,9 @@
   format = ssh
 
 [gpg "ssh"]
-  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
-  allowedSignersFile = /Users/george.alton/.ssh/allowed_signers
+  program = "/opt/1Password/op-ssh-sign"
+  ; program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+  allowedSignersFile = ~/.ssh/allowed_signers
 
 [help]
   autoCorrect = prompt
@@ -61,3 +62,5 @@
   process = git-lfs filter-process
   required = true
   clean = git-lfs clean -- %f
+[pull]
+	rebase = true

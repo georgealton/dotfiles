@@ -1,0 +1,111 @@
+include /etc/sway/config.d/*
+include theme
+
+set $mod Mod4
+
+font pango:FiraCode Nerd Font Mono 10
+gaps inner 1
+smart_borders on
+default_border pixel
+
+output "*" scale 1.25
+output "*" bg ${HOME}/bg.png fill
+
+set $term alacritty
+
+set $up k
+set $down j
+set $left h
+set $right l
+
+bindsym $mod+Return exec $term
+
+bindsym $mod+q kill
+bindsym $mod+space exec "wofi --show drun"
+bindsym $mod+f fullscreen toggle
+
+# change focus
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+# move focused window
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+bindsym $mod+minus split v
+bindsym $mod+Bar split h
+bindsym $mod+t split t
+
+for_window [title="Picture-in-Picture"] floating enable, resize set width 640px height 360px
+
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+for_window [app_id="thunderbird"] move container to workspace $ws2
+for_window [app_id="teams-for-linux"] move container to workspace $ws2
+for_window [title="Spotify"] move container to workspace $ws3
+for_window [app_id="obsidian"] move container to workspace $ws4
+for_window [app_id="Slack"] move container to workspace $ws5
+for_window [app_id="discord"] move container to workspace $ws5
+
+# switch to workspace
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
+
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+# audio control
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+
+exec --no-startup-id autotiling-rs
+exec swayidle
+exec mako
+exec waybar
+exec $term
+exec gio launch /usr/share/applications/firefox.desktop
+exec gio launch /usr/share/applications/1password.desktop
+exec gio launch /usr/share/applications/org.mozilla.Thunderbird.desktop
+exec gio launch ${HOME}/.local/share/applications/teams-for-linux.desktop
+# exec gio launch ${HOME}/.local/share/applications/obsidian.desktop

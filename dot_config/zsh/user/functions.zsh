@@ -1,10 +1,10 @@
 upgrade-tooling (){
-    printf "Brew\n"
+    printf "System Packages\n"
+    pacman -Syu -q
     brew bundle install --quiet
     # brew bundle --cleanup --quiet
 
     printf "NVim\n"
-
     # MasonUpdate doesn't pull in new LSPs
     for plugin_update_command in 'Lazy! sync' 'MasonUpdate' 'TSUpdate'; do
         nvim --headless "+$plugin_update_command" "+qa"

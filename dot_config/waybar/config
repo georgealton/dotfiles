@@ -1,0 +1,61 @@
+{
+    "layer": "top",
+    "modules-left": [
+        "sway/workspaces",
+        "sway/mode"
+    ],
+    "modules-center": [
+        "sway/window"
+    ],
+    "modules-right": [
+        "mpris",
+        "wireplumber",
+        "bluetooth",
+        "network",
+        "clock",
+        "tray"
+    ],
+    "sway/window": {
+        "max-length": 50
+    },
+    "network": {
+        "interface": "en*",
+        "format": "󰈀 {ifname}",
+        "tooltip-format": "{ipaddr}"
+    },
+    "sway/mode": {
+        "format": " {}",
+        "max-length": 50
+    },
+    "bluetooth": {
+        "on-click": "blueman-manager",
+        "format-disabled": "󰂲",
+        "format-connected": " {num_connections}",
+        "tooltip-format-connected": "{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\t 󰥉{device_battery_percentage}%"
+    },
+    "clock": {
+        "format-alt": "{:%a, %d. %b  %H:%M}"
+    },
+    "wireplumber": {
+        "on-click": "pavucontrol",
+        "format": "{icon} {volume}%",
+        "format-icons": ["", "", ""],
+        "format-muted": ""
+   },
+   "mpris": {
+        "format": "{player_icon} {status_icon} {artist} - {title}",
+        "format-stopped": "{player_icon}",
+        "format-paused": "{player_icon} {status_icon} <i>{artist} - {title}</i>",
+        "player-icons": {
+            "default": "",
+            "firefox": "",
+            "spotify": ""
+        },
+        "status-icons": {
+            "playing": "▶",
+            "paused": ""
+        }
+    }
+}

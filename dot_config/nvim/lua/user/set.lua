@@ -38,4 +38,3 @@ opt.backup           = false
 opt.updatetime       = 50
 
 vim.cmd.colorscheme "catppuccin"
-vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]

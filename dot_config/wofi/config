@@ -1,0 +1,5 @@
+lines=10
+width=600
+term=alacritty
+allow_markup=true
+prompt=Search

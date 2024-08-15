@@ -76,11 +76,14 @@ lsp.configure('pyright', {
 if not configs.cloudformation then
     configs.cloudformation = {
         default_config = {
-            cmd = { 'cfn-lsp-extra' },
-            filetypes = { 'yaml.cloudformation', 'json.cloudformation' },
-            single_file_support = true,
-            root_dir = util.find_git_ancestor,
-            settings = {},
+            cmd = { os.getenv("HOME") .. '/.local/bin/cfn-lsp-extra' },
+            filetypes = { 'cfn.yaml' },
+            root_dir = function(fname)
+              return require('lspconfig').util.find_git_ancestor(fname) or vim.fn.getcwd()
+            end,
+            settings = {
+                documentFormatting = false
+            },
         },
     }
 end

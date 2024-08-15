@@ -1,11 +1,8 @@
-Include /Users/george.alton/.colima/ssh_config
-
-Include ~/.colima/ssh_config
 Include ~/.ssh/config_local
-
-Host *
-	IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 
 # SSH over AWS Session Manager
 Host i-* mi-*
 	ProxyCommand sh -c "aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters 'portNumber=%p'"
+
+Host *
+	IdentityAgent ~/.1password/agent.sock
