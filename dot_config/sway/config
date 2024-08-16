@@ -10,8 +10,9 @@ default_border pixel
 
 output "*" scale 1.25
 output "*" bg ${HOME}/bg.png fill
+output "Virtual-1" res 3840x2160 scale 2
 
-set $term alacritty
+set $term wezterm
 
 set $up k
 set $down j
