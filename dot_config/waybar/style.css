@@ -1,4 +1,5 @@
 @import "./mocha.css";
+
 * {
   font-family:FiraCode Nerd Font;
   font-size: 16px;
@@ -6,6 +7,11 @@
   border: none;
   min-height: 0;
   color: @text;
+}
+
+#mode {
+    background-color: @flamingo;
+    color: @base;
 }
 
 #mode, #clock, #bluetooth {

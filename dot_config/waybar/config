@@ -1,8 +1,8 @@
 {
     "layer": "top",
     "modules-left": [
-        "sway/workspaces",
-        "sway/mode"
+        "sway/mode",
+        "sway/workspaces"
     ],
     "modules-center": [
         "sway/window"
@@ -21,7 +21,7 @@
         "tooltip-format": "{ipaddr}"
     },
     "sway/mode": {
-        "format": " {}",
+        "format": "\udb85\udddd {}",
         "max-length": 50
     },
     "bluetooth": {
