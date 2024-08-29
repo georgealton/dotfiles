@@ -13,11 +13,19 @@ setopt HIST_SAVE_NO_DUPS
 setopt HIST_REDUCE_BLANKS
 setopt INC_APPEND_HISTORY_TIME
 
-. "${PATH_PREFIX}/share/zsh-antidote/antidote.zsh"
+setopt nobeep
+setopt notify
+
+# antidote
+if [[ -f "${PATH_PREFIX}/share/zsh-antidote/antidote.zsh" ]]; then
+    source "${PATH_PREFIX}/share/zsh-antidote/antidote.zsh"
+elif [[ -f "${ZDOTDIR:-$HOME}/.antidote/antidote.zsh" ]]; then
+    source "${ZDOTDIR:-$HOME}/.antidote/antidote.zsh"
+fi
 antidote load
 
 # Completions
-COMPLETION_WAITING_DOTS="true"
+export COMPLETION_WAITING_DOTS="true"
 FPATH="$PATH_PREFIX/share/${ZDOTDIR}/site-functions:${FPATH}"
 autoload -Uz compinit && compinit
 autoload bashcompinit && bashcompinit

@@ -8,7 +8,6 @@ gaps inner 1
 smart_borders on
 default_border pixel
 
-output "*" scale 1.25
 output "*" bg ${HOME}/bg.png fill
 output "Virtual-1" res 3840x2160 scale 2
 
@@ -38,11 +37,21 @@ bindsym $mod+Shift+$up move up
 bindsym $mod+Shift+$right move right
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+return floating toggle
 
 bindsym $mod+minus split v
 bindsym $mod+Bar split h
 bindsym $mod+t split t
+
+bindsym $mod+r mode resize
+mode "resize" {
+    bindsym $left resize shrink width 10 px
+    bindsym $down resize grow height 10 px
+    bindsym $up resize shrink height 10 px
+    bindsym $right resize grow width 10 px
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
 
 for_window [title="Picture-in-Picture"] floating enable, resize set width 640px height 360px
 
@@ -60,6 +69,7 @@ set $ws10 "10"
 for_window [app_id="thunderbird"] move container to workspace $ws2
 for_window [app_id="teams-for-linux"] move container to workspace $ws2
 for_window [title="Spotify"] move container to workspace $ws3
+for_window [title="Cider"] move container to workspace $ws3
 for_window [app_id="obsidian"] move container to workspace $ws4
 for_window [app_id="Slack"] move container to workspace $ws5
 for_window [app_id="discord"] move container to workspace $ws5
@@ -105,6 +115,7 @@ exec swayidle
 exec mako
 exec waybar
 exec $term
+
 exec gio launch /usr/share/applications/firefox.desktop
 exec gio launch /usr/share/applications/1password.desktop
 exec gio launch /usr/share/applications/org.mozilla.Thunderbird.desktop

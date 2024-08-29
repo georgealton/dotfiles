@@ -15,9 +15,6 @@
         "clock",
         "tray"
     ],
-    "sway/window": {
-        "max-length": 50
-    },
     "network": {
         "interface": "en*",
         "format": "󰈀 {ifname}",
@@ -30,6 +27,7 @@
     "bluetooth": {
         "on-click": "blueman-manager",
         "format-disabled": "󰂲",
+        "format-off": "󰂲",
         "format-connected": " {num_connections}",
         "tooltip-format-connected": "{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}",
@@ -41,10 +39,14 @@
     "wireplumber": {
         "on-click": "pavucontrol",
         "format": "{icon} {volume}%",
-        "format-icons": ["", "", ""],
+        "format-icons": [
+            "",
+            "",
+            ""
+        ],
         "format-muted": ""
-   },
-   "mpris": {
+    },
+    "mpris": {
         "format": "{player_icon} {status_icon} {artist} - {title}",
         "format-stopped": "{player_icon}",
         "format-paused": "{player_icon} {status_icon} <i>{artist} - {title}</i>",
