@@ -3,7 +3,8 @@ alias ls='exa --icons'
 alias tree='ls --tree'
 alias dig='dog'
 alias vim='nvim'
-if command -v gmake; then
+
+if command -v gmake > /dev/null; then
     alias make='gmake'
 fi
 alias cd='z'
