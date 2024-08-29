@@ -13,8 +13,11 @@
 /* Window */
 window {
     margin: 0px;
-    border: 1px solid @accent;
     background-color: @bg;
+}
+
+#outer-box {
+    border: 1px solid @accent;
 }
 
 #expander-box {
@@ -39,10 +42,19 @@ window {
 }
 
 #input {
-    margin: 1px;
+    margin: 0px;
     border: none;
     color: @accent;
-    background-color: @bg2;
+    background-color: @bg;
+    box-shadow: none;
+}
+
+#input > image.left {
+  -gtk-icon-transform:scaleX(0);
+}
+
+#input > image.right {
+  -gtk-icon-transform:scaleX(0);
 }
 
 /* Text */

@@ -1,5 +1,5 @@
 lines=10
 width=600
-term=alacritty
+term=wezterm
 allow_markup=true
 prompt=Search
