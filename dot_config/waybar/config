@@ -12,6 +12,7 @@
         "wireplumber",
         "bluetooth",
         "network",
+        "battery",
         "clock",
         "tray"
     ],
