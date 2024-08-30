@@ -23,7 +23,7 @@ set $right l
 
 bindsym $mod+Return exec $term
 
-bindsym $mod+q kill
+bindsym Control+q kill
 bindsym $mod+space exec "wofi --show drun"
 bindsym $mod+f fullscreen toggle
 
@@ -44,9 +44,8 @@ bindsym $mod+Shift+return floating toggle
 
 bindsym $mod+minus split v
 bindsym $mod+Bar split h
-bindsym $mod+t split t
 
-bindsym $mod+r mode resize
+bindsym $mod+Escape mode resize
 mode "resize" {
     bindsym $left resize shrink width 10 px
     bindsym $down resize grow height 10 px
@@ -63,11 +62,6 @@ set $ws2 "2"
 set $ws3 "3"
 set $ws4 "4"
 set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
 
 for_window [app_id="thunderbird"] move container to workspace $ws2
 for_window [app_id="teams-for-linux"] move container to workspace $ws2
@@ -86,11 +80,13 @@ bindsym $mod+2 workspace number $ws2
 bindsym $mod+3 workspace number $ws3
 bindsym $mod+4 workspace number $ws4
 bindsym $mod+5 workspace number $ws5
-bindsym $mod+6 workspace number $ws6
-bindsym $mod+7 workspace number $ws7
-bindsym $mod+8 workspace number $ws8
-bindsym $mod+9 workspace number $ws9
-bindsym $mod+0 workspace number $ws10
+
+# use top row to make switching workspaces easier on corne
+bindsym $mod+q workspace number $ws1
+bindsym $mod+w workspace number $ws2
+bindsym $mod+e workspace number $ws3
+bindsym $mod+r workspace number $ws4
+bindsym $mod+t workspace number $ws5
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -98,11 +94,12 @@ bindsym $mod+Shift+2 move container to workspace number $ws2
 bindsym $mod+Shift+3 move container to workspace number $ws3
 bindsym $mod+Shift+4 move container to workspace number $ws4
 bindsym $mod+Shift+5 move container to workspace number $ws5
-bindsym $mod+Shift+6 move container to workspace number $ws6
-bindsym $mod+Shift+7 move container to workspace number $ws7
-bindsym $mod+Shift+8 move container to workspace number $ws8
-bindsym $mod+Shift+9 move container to workspace number $ws9
-bindsym $mod+Shift+0 move container to workspace number $ws10
+
+bindsym $mod+Shift+q move container to workspace number $ws1
+bindsym $mod+Shift+w move container to workspace number $ws2
+bindsym $mod+Shift+e move container to workspace number $ws3
+bindsym $mod+Shift+r move container to workspace number $ws4
+bindsym $mod+Shift+t move container to workspace number $ws5
 
 # audio control
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
@@ -114,7 +111,7 @@ bindswitch --reload --locked lid:off output $laptop_display enable
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
-bindsym $mod+Shift+r restart
+bindsym $mod+Shift+Escape restart
 
 exec --no-startup-id autotiling-rs
 exec swayidle
