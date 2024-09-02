@@ -1,14 +1,11 @@
-/* Example userChrome.css file */
-
-/* Import your desired components first */
-
 @import url(chrome/compact_proton.css);
 @import url(chrome/tab_close_button_always_on_hover.css);
-@import url(chrome/navbar_tabs_oneliner_tabs_on_left.css);
+@import url(chrome/navbar_tabs_oneliner.css);
 @import url(chrome/show_urlbar_button.css);
 @import url(chrome/tab_loading_progress_bar.css);
-
-/* Apply your custom modifications after imports */
+@import url(chrome/tabs_fill_available_width.css);
+@import url(chrome/autohide_navigation_button.css);
+@import url(chrome/sharp_menupopup_corners.css);
 
 :root{
   --uc-menu-bkgnd: var(--toolbar-bgcolor);
@@ -16,5 +13,6 @@
   --autocomplete-popup-background: var(--toolbar-bgcolor) !important;
 }
 
+.titlebar-close{ display: none }
+
 #sidebar-box{ --sidebar-background-color: var(--toolbar-bgcolor) !important; }
-window.sidebar-panel{ --lwt-sidebar-background-color: rgb(36,44,59) !important; }

@@ -2,8 +2,17 @@ include /etc/sway/config.d/*
 include theme
 
 set $mod Mod4
+set $up k
+set $down j
+set $left h
+set $right l
 
 set $laptop_display "eDP-1"
+
+set $term 'wezterm || alacritty'
+set $app_menu 'wofi --show drun'
+set $bar 'waybar'
+set $notifier 'mako'
 
 font pango:FiraCode Nerd Font Mono 10
 gaps inner 1
@@ -14,17 +23,9 @@ output "*" bg ${HOME}/bg.png fill
 output "Virtual-1" res 3840x2160 scale 2
 output $laptop_display scale 1.5
 
-set $term 'wezterm || alacritty'
-
-set $up k
-set $down j
-set $left h
-set $right l
-
 bindsym $mod+Return exec $term
-
+bindsym $mod+space exec $app_menu
 bindsym Control+q kill
-bindsym $mod+space exec "wofi --show drun"
 bindsym $mod+f fullscreen toggle
 
 # change focus
@@ -41,7 +42,6 @@ bindsym $mod+Shift+$right move right
 
 # toggle tiling / floating
 bindsym $mod+Shift+return floating toggle
-
 bindsym $mod+minus split v
 bindsym $mod+Bar split h
 
@@ -54,8 +54,6 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-
-for_window [title="Picture-in-Picture"] floating enable, resize set width 640px height 360px
 
 set $ws1 "1"
 set $ws2 "2"
@@ -70,6 +68,7 @@ for_window [title="Cider"] move container to workspace $ws3
 for_window [app_id="obsidian"] move container to workspace $ws4
 for_window [app_id="Slack"] move container to workspace $ws5
 for_window [app_id="discord"] move container to workspace $ws5
+for_window [title="Picture-in-Picture"] floating enable, resize set width 640px height 360px
 
 # switch to workspace
 bindsym $mod+Tab workspace next
@@ -106,6 +105,7 @@ bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 
+# laptop lid
 bindswitch --reload --locked lid:on output $laptop_display disable
 bindswitch --reload --locked lid:off output $laptop_display enable
 
@@ -113,10 +113,11 @@ bindswitch --reload --locked lid:off output $laptop_display enable
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+Escape restart
 
+# startup programs
 exec --no-startup-id autotiling-rs
 exec swayidle
-exec mako
-exec waybar
+exec $notifier
+exec $bar
 exec $term
 
 exec gio launch /usr/share/applications/firefox.desktop
