@@ -30,7 +30,6 @@ FPATH="$PATH_PREFIX/share/${ZDOTDIR}/site-functions:${FPATH}"
 autoload -Uz compinit && compinit
 autoload bashcompinit && bashcompinit
 complete -C "${PATH_PREFIX}/bin/aws_completer" aws
-eval "$(op completion zsh)"; compdef _op op
 eval "$(register-python-argcomplete pipx)"
 complete -o nospace -C $PATH_PREFIX/bin/terraform terraform
 
@@ -45,8 +44,14 @@ if command -v npm > /dev/null; then
     export PATH="$(npm config get prefix)/bin:$PATH"
 fi
 
-eval "$(pyenv init -)"
-eval "$(rbenv init - zsh)"
+if command -v pyenv > /dev/null; then
+    eval "$(pyenv init -)"
+fi
+
+if command -v rbenv > /dev/null; then
+    eval "$(rbenv init - zsh)"
+fi
+
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 
