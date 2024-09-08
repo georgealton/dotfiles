@@ -17,9 +17,13 @@
         "tray"
     ],
     "network": {
-        "interface": "en*",
-        "format": "󰈀 {ifname}",
-        "tooltip-format": "{ipaddr}"
+        "interface": "*p*",
+        "format-disconnected": "",
+        "format-wifi": "  ",
+        "format-ethernet": "󰈀  ",
+        "tooltip-format": "{ipaddr}",
+        "tooltip-format-wifi": "{essid} \t {ifname} \t {ipaddr}",
+        "tooltip-format-ethernet": "{ifname} \t {ipaddr}"
     },
     "sway/mode": {
         "format": "\udb85\udddd {}",
@@ -27,30 +31,40 @@
     },
     "bluetooth": {
         "on-click": "blueman-manager",
+        "format": "",
         "format-disabled": "󰂲",
-        "format-off": "󰂲",
-        "format-connected": " {num_connections}",
+        "format-off": "",
+        "format-connected": "<sup>{num_connections}</sup>",
         "tooltip-format-connected": "{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}",
-        "tooltip-format-enumerate-connected-battery": "{device_alias}\t 󰥉{device_battery_percentage}%"
+        "tooltip-format-enumerate-connected-battery": "{device_alias} \t {device_battery_percentage}%"
     },
     "clock": {
-        "format-alt": "{:%a, %d. %b  %H:%M}"
+        "format": "{:%H:%M}",
+        "tooltip-format": "{:%d/%m/%Y}",
+        "on-click": "thunderbird -calendar"
+    },
+    "battery": {
+        "interval": 60,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} ",
+        "format-icons": ["", "", "", "", ""],
+        "tooltip-format": "{capacity}% \t {timeTo}"
     },
     "wireplumber": {
         "on-click": "pavucontrol",
-        "format": "{icon} {volume}%",
-        "format-icons": [
-            "",
-            "",
-            ""
-        ],
+        "tooltip-format": "{node_name} \t {volume}%",
+        "format": "{icon} ",
+        "format-icons": ["", "", ""],
         "format-muted": ""
     },
     "mpris": {
-        "format": "{player_icon} {status_icon} {artist} - {title}",
+        "format": "{player_icon} {status_icon} <b>{artist}</b> | {title}",
         "format-stopped": "{player_icon}",
-        "format-paused": "{player_icon} {status_icon} <i>{artist} - {title}</i>",
+        "format-paused": "{player_icon} {status_icon} <i><b>{artist}</b> | {title}</i>",
         "player-icons": {
             "default": "",
             "firefox": "",

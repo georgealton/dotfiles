@@ -58,10 +58,38 @@ button {
   color: @blue
 }
 
+#bluetooth.disabled {
+  color: @red
+}
+
+#bluetooth.on {
+  color: @blue
+}
+
+#battery.warning {
+  color: @peach
+}
+
+#battery.critical {
+  color: @red
+}
+
 #clock {
   color: @rosewater;
 }
 
 #wireplumber {
   color: @green
+}
+
+#wireplumber.muted {
+  color: @red
+}
+
+#network {
+  color: @yellow
+}
+
+#network.disconnected {
+  color: @red
 }

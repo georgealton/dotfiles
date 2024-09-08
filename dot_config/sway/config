@@ -100,6 +100,10 @@ bindsym $mod+Shift+e move container to workspace number $ws3
 bindsym $mod+Shift+r move container to workspace number $ws4
 bindsym $mod+Shift+t move container to workspace number $ws5
 
+# brightness
+bindsym XF86MonBrightnessUp exec light -A 10
+bindsym XF86MonBrightnessDown exec light -U 10
+
 # audio control
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
