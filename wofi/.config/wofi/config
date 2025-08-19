@@ -1,0 +1,6 @@
+lines=10
+width=600
+term=WezTerm
+allow_markup=true
+prompt=Search
+gtk_dark=true

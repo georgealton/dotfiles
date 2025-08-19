@@ -1,0 +1,14 @@
+include=~/.config/mako/rose-pine.theme
+
+font=FiraCode 12
+default-timeout=5000
+width=300
+height=150
+border-size=1
+layer=overlay
+padding=0
+
+[mode=do-not-disturb]
+default-timeout=0
+invisible=1
+ignore-timeout=1

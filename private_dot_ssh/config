@@ -1,8 +1,0 @@
-Include ~/.ssh/config_local
-
-# SSH over AWS Session Manager
-Host i-* mi-*
-	ProxyCommand sh -c "aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters 'portNumber=%p'"
-
-Host *
-	IdentityAgent ~/.1password/agent.sock

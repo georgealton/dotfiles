@@ -1,0 +1,74 @@
+@import "./rose-pine.css";
+
+* {
+  font-family:FiraCode;
+  font-size: 11pt;
+  border-radius: 0;
+  border: none;
+  min-height: 0;
+  color: @text;
+}
+
+#mode {
+    background-color: @rose;
+    color: @base;
+}
+
+tooltip {
+  background-color: shade(@base, 0.9);
+}
+
+window#waybar {
+  background-color: shade(@base, 0.9);
+}
+
+button {
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+}
+
+#workspaces button {
+  padding: 0;
+  background-color: transparent;
+  border-bottom: 3px solid transparent;
+}
+
+#workspaces button.focused {
+  border-bottom: 3px solid @foam;
+}
+
+#workspaces button:hover {
+  border-bottom: 3px solid @rose;
+  background-color: @red;
+  box-shadow: inherit;
+  background-color: shade(@base, 0.8);
+}
+
+#workspaces button.urgent {
+  color: @rose
+}
+
+#wireplumber.muted {
+    color: @love
+}
+
+#bluetooth.off {
+  color: @love
+}
+
+#network.disabled {
+  color: @love
+}
+
+#bluetooth.disabled {
+  color: @love
+}
+
+#battery.warning {
+  color: @gold
+}
+
+#battery.critical {
+  color: @love
+}

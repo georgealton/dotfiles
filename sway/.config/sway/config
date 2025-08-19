@@ -1,0 +1,165 @@
+include /etc/sway/config.d/*
+include theme
+
+set $mod Mod4
+
+set $up k
+set $down j
+set $left h
+set $right l
+
+set $laptop_display "eDP-1"
+set $desktop_display "Virtual-1"
+set $dell "HDMI-A-1"
+
+set $term 'ghostty'
+set $browser 'flatpak run app.zen_browser.zen'
+set $app_menu 'wofi --show drun'
+set $bar 'waybar'
+set $notifier 'mako'
+
+font pango:FiraCode 14
+
+# gaps inner 1
+smart_borders on
+# smart_gaps on
+default_border pixel
+
+floating_modifier $mod
+
+input type:keyboard {
+    repeat_delay 200
+    repeat_rate 50
+}
+
+output "*" bg ${HOME}/bg.png fill
+output $dell scale 1.5
+output $laptop_display scale 2
+
+bindsym $mod+Return exec $term
+bindsym $mod+space exec $app_menu
+
+bindsym Control+q kill
+bindsym $mod+f fullscreen toggle
+
+# change focus
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+# move focused window
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+
+# toggle tiling / floating
+bindsym $mod+Shift+return floating toggle
+bindsym $mod+minus split v
+bindsym $mod+Bar split h
+
+# Resize Mode
+bindsym $mod+Escape mode resize
+mode "resize" {
+    bindsym $left resize shrink width 10 ppt
+    bindsym $down resize grow height 10 ppt
+    bindsym $up resize shrink height 10 ppt
+    bindsym $right resize grow width 10 ppt
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+
+# Window Rules
+for_window [app_id="thunderbird"] move container to workspace $ws2
+for_window [title=".*Microsoft Teams"] move container to workspace $ws3
+for_window [title="Newsboat"] move container to workspace $ws4
+for_window [app_id="firefox" title="Apple Music.*" ] move container to workspace 5
+for_window [app_id=".*pavucontrol$"] floating enable, sticky enable
+for_window [app_id="blueman-manager"] floating enable, sticky enable
+for_window [title="Picture-in-Picture"] floating enable, resize set width 640px height 360px
+for_window [title=".*1Password$"] floating enable, sticky enable, resize set width 800px height 660px
+
+# switch to workspace
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
+
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+
+# use top row to make switching workspaces easier on corne
+bindsym $mod+q workspace number $ws1
+bindsym $mod+w workspace number $ws2
+bindsym $mod+e workspace number $ws3
+bindsym $mod+r workspace number $ws4
+bindsym $mod+t workspace number $ws5
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+
+bindsym $mod+Shift+q move container to workspace number $ws1
+bindsym $mod+Shift+w move container to workspace number $ws2
+bindsym $mod+Shift+e move container to workspace number $ws3
+bindsym $mod+Shift+r move container to workspace number $ws4
+bindsym $mod+Shift+t move container to workspace number $ws5
+
+## Inputs
+### brightness
+bindsym XF86MonBrightnessUp exec light -A 10
+bindsym XF86MonBrightnessDown exec light -U 10
+
+### audio control
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && '$HOME/scripts/wp-vol.sh'
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% && '$HOME/scripts/wp-vol.sh'
+
+### playerctl
+bindsym XF86AudioNext exec playerctl next && notify-send "Audio Next"
+bindsym XF86AudioPrev exec playerctl previous && notify-send "Audio Previous"
+bindsym XF86AudioPlay exec playerctl play-pause && notify-send "Audio play/pause"
+bindsym XF86AudioStop exec playerctl stop && notify-send "Audio Stop"
+
+### laptop lid
+bindswitch --reload --locked lid:on output $laptop_display disable
+bindswitch --reload --locked lid:off output $laptop_display enable
+
+# screenshots
+bindsym $mod+s exec '$HOME/scripts/screenshot.sh select-file'
+bindsym $mod+Shift+s exec '$HOME/scripts/screenshot.sh select-copy'
+
+# reload the configuration file
+bindsym $mod+Shift+c reload; exec notify-send "swaywm config reloaded"
+
+# startup programs
+exec $notifier
+exec ${HOME}/.local/bin/autotiling-rs
+exec $bar
+exec $term
+exec wl-paste --watch cliphist store
+
+# clipboard history menu
+bindsym $mod+p exec cliphist list | wofi -S dmenu | cliphist decode | wl-copy
+
+# windows
+bindsym $mod+o exec 'python $HOME/scripts/windows.py'
+
+# apps
+exec 'gio launch /usr/share/applications/1password.desktop || 1password'
+exec 'gio launch /usr/share/applications/org.mozilla.Thunderbird.desktop || thunderbird'
+exec '$browser --new-window https://teams.microsoft.com'
+exec '$term --title=Newsboat -e newsboat'
+exec 'firefox --new-window https://beta.music.apple.com/gb/home'

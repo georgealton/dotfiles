@@ -1,0 +1,114 @@
+{
+    "layer": "top",
+    "spacing": 5,
+    "modules-left": [
+        "sway/mode",
+        "sway/workspaces"
+    ],
+    "modules-center": [
+        "sway/window"
+    ],
+    "modules-right": [
+        "privacy",
+        "mpris",
+        "wireplumber",
+        "bluetooth",
+        "network",
+        "battery",
+        "clock",
+        "tray"
+    ],
+    "network": {
+        "interface": "*p*",
+        "format-disconnected": "",
+        "format-wifi": "",
+        "format-ethernet": "󰈀",
+        "tooltip-format": "{ipaddr}",
+        "tooltip-format-wifi": "{essid} \t {ifname} \t {ipaddr}",
+        "tooltip-format-ethernet": "{ifname} \t {ipaddr}"
+    },
+    "sway/mode": {
+        "format": "{}",
+        "max-length": 50
+    },
+    "sway/workspaces": {
+        "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": []
+        }
+    },
+    "bluetooth": {
+        "on-click": "blueman-manager",
+        "format": "",
+        "format-disabled": "󰂲",
+        "format-off": "",
+        "format-connected": "<sup>{num_connections}</sup>",
+        "tooltip-format-connected": "{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias} \t {device_battery_percentage}%"
+    },
+    "clock": {
+        "format": "{:%H:%M}",
+        "tooltip-format": "{:%d/%m/%Y}"
+    },
+    "battery": {
+        "interval": 60,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon}",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "tooltip-format": "{capacity}% \t {timeTo}"
+    },
+    "wireplumber": {
+        "on-click": "pavucontrol",
+        "tooltip-format": "{node_name} \t {volume}%",
+        "format": "{icon}",
+        "format-icons": [
+            "",
+            "",
+            ""
+        ],
+        "format-muted": ""
+    },
+    "privacy": {
+        "icon-spacing": 4,
+        "icon-size": 18,
+        "transition-duration": 250,
+        "modules": [
+            {
+                "type": "screenshare",
+                "tooltip": true,
+                "tooltip-icon-size": 24
+            },
+            {
+                "type": "audio-out",
+                "tooltip": true,
+                "tooltip-icon-size": 24
+            },
+            {
+                "type": "audio-in",
+                "tooltip": true,
+                "tooltip-icon-size": 24
+            }
+        ]
+    },
+    "mpris": {
+        "format": "{status_icon} <b>{artist}</b> | {title}",
+        "format-paused": "{status_icon} <i><b>{artist}</b> | {title}</i>",
+        "status-icons": {
+            "playing": "▶",
+            "paused": ""
+        }
+    }
+}

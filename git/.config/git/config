@@ -1,0 +1,72 @@
+[user]
+  email = galton@evertz.com
+  name = George Alton
+  signingkey = key::ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILlGfYFxNZnNQ+5ked3k8KRPLEjh071QzXZNfAa4Zqbx
+
+[url "ssh://git@github.com/"]
+  insteadOf = https://github.com/
+
+[color]
+  ui = auto
+
+[advice]  
+  addEmptyPathspec = false
+  pushNonFastForward = false
+  statusHints = false
+
+[tag]
+  # Sort tags as version numbers whenever applicable, so 1.10.2 is AFTER 1.2.0.
+  sort = version:refname
+
+[push]
+  default = simple
+  gpgSign = if-asked
+  autoSetupRemote = true
+
+[diff]
+  colorMoved = default
+
+[commit]
+  gpgsign = true
+
+[core]
+  excludesfile = ~/.config/git/gitignore_global
+  pager = delta
+  whitespace = error
+
+[delta]
+  navigate = true    # use n and N to move between diff sections
+  light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+  side-by-side = true
+
+[interactive]
+  diffFilter = delta --color-only
+
+[includeIf "gitdir:~/work/"]
+  path = ~/work/.gitconfig_include
+
+[fetch]
+  prune = true
+  pruneTags = true
+
+[init]
+  defaultBranch = main
+
+[gpg]
+  format = ssh
+
+[gpg "ssh"]
+  program = "/opt/1Password/op-ssh-sign"
+  ; program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+  allowedSignersFile = ~/.ssh/allowed_signers
+
+[help]
+  autoCorrect = prompt
+
+[filter "lfs"]
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+  clean = git-lfs clean -- %f
+[pull]
+	rebase = true

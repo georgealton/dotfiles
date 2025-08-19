@@ -1,0 +1,74 @@
+/* Mocha Blue */
+@define-color accent #89b4fa;
+@define-color txt #cad3f5;
+@define-color bg #24273a;
+@define-color bg2 #494d64;
+
+* {
+    font-family: 'FiraCode Nerd Font', monospace;
+    font-size: 18px;
+    border-radius: 0px;
+}
+
+/* Window */
+window {
+    margin: 0px;
+    background-color: @bg;
+}
+
+#outer-box {
+    border: 1px solid @accent;
+}
+
+#expander-box {
+    background-color: @bg;
+}
+
+#inner-box {
+    margin: 1px;
+    border: none;
+    background-color: @bg;
+}
+
+#outer-box {
+    margin: 1px;
+    border: none;
+    background-color: @bg;
+}
+
+#scroll {
+    margin: 0px;
+    border: none;
+}
+
+#input {
+    margin: 0px;
+    border: none;
+    color: @accent;
+    background-color: @bg;
+    box-shadow: none;
+}
+
+#input > image.left {
+  -gtk-icon-transform:scaleX(0);
+}
+
+#input > image.right {
+  -gtk-icon-transform:scaleX(0);
+}
+
+/* Text */
+#text {
+    margin: 1px;
+    border: none;
+    color: @txt;
+}
+
+/* Selected Entry */
+#entry:selected {
+    background-color: @accent;
+}
+
+#entry:selected #text {
+    color: @bg;
+}
