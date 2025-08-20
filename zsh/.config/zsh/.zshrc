@@ -28,7 +28,7 @@ antidote load
 export COMPLETION_WAITING_DOTS="true"
 
 FPATH="$PATH_PREFIX/share/${ZDOTDIR}/site-functions:${FPATH}"
-autoload -Uz compinit -d ${XDG_STATE_HOME}/zsh/.zcompdump && compinit
+autoload -Uz compinit && compinit -d "${XDG_STATE_HOME}/zsh/.zcompdump"
 autoload bashcompinit && bashcompinit
 complete -C "${PATH_PREFIX}/bin/aws_completer" aws
 if command -v register-python-argcomplete; then 
@@ -46,5 +46,3 @@ fi
 
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
-
-. "$HOME/.local/share/../bin/env"
