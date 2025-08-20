@@ -8,7 +8,7 @@ set $down j
 set $left h
 set $right l
 
-set $laptop_display "eDP-1"
+set $thinkpad_display "Lenovo Group Limited 0x40A9 Unknown"
 set $desktop_display "Virtual-1"
 set $dell "HDMI-A-1"
 
@@ -34,7 +34,7 @@ input type:keyboard {
 
 output "*" bg ${HOME}/bg.png fill
 output $dell scale 1.5
-output $laptop_display scale 2
+output $thinkpad_display scale 1.25
 
 bindsym $mod+Return exec $term
 bindsym $mod+space exec $app_menu
