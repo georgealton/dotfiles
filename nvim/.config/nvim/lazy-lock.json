@@ -18,5 +18,5 @@
   "telescope.nvim": { "branch": "master", "commit": "b4da76be54691e854d3e0e02c36b0245f945c2c7" },
   "trouble.nvim": { "branch": "main", "commit": "85bedb7eb7fa331a2ccbecb9202d8abba64d37b3" },
   "undotree": { "branch": "master", "commit": "28f2f54a34baff90ea6f4a735ef1813ad875c743" },
-  "vim-test": { "branch": "master", "commit": "2d6f694b0b9242dbbb4f54f388e814f929e1d211" }
+  "vim-test": { "branch": "master", "commit": "35f286da462d544a78810b7606778d3467ef4369" }
 }
