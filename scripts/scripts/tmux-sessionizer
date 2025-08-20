@@ -20,10 +20,10 @@ else
             --type d \
             "${dirs[@]}" |
             fzf \
-                --tmux \
+                --tmux '90%' \
                 --no-multi \
                 --preview "${preview_command}" \
-                --prompt 'Select Workspace: ' \
+                --prompt 'Select a Workspace:' \
                 --preview-label 'Workspace Files' \
                 --preview-window 'right:30%'
     )
