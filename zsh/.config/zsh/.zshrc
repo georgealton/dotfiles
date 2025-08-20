@@ -28,7 +28,7 @@ antidote load
 export COMPLETION_WAITING_DOTS="true"
 
 FPATH="$PATH_PREFIX/share/${ZDOTDIR}/site-functions:${FPATH}"
-autoload -Uz compinit && compinit
+autoload -Uz compinit -d ${XDG_STATE_HOME}/zsh/.zcompdump && compinit
 autoload bashcompinit && bashcompinit
 complete -C "${PATH_PREFIX}/bin/aws_completer" aws
 if command -v register-python-argcomplete; then 
