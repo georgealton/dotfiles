@@ -23,7 +23,7 @@ export STARSHIP_CONFIG="${XDG_CONFIG_HOME}/starship/starship.toml"
 # Bat
 export BAT_CONFIG_PATH="${XDG_CONFIG_HOME}/bat/bat.conf"
 export MANROFFOPT='-c'
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANPAGER="nvim +Man!"
 
 # NPM
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"

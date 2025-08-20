@@ -9,9 +9,15 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_SAVE_NO_DUPS
 setopt HIST_REDUCE_BLANKS
 setopt INC_APPEND_HISTORY_TIME
+setopt SHARE_HISTORY
 
 setopt nobeep
 setopt notify
+
+# when processes are set as background jobs if the process name is retyped then
+# instead of forking a new process, instead bring the background job to the 
+# foreground
+setopt auto_resume
 
 # antidote
 if [[ -f "${PATH_PREFIX}/share/zsh-antidote/antidote.zsh" ]]; then
