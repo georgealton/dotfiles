@@ -17,11 +17,11 @@ upgrade-tooling () {
     uv tool upgrade --all
 
     echo "tmux"
-    ~/.tmux/plugins/tpm/bin/update_plugins all
+    ${XDG_DATA_HOME}/tmux/plugins/tpm/bin/update_plugins all
 
 
     echo "ZSH Plugins"
-    if command -v antidote; then
+    if command -v antidote >/dev/null 2>&1; then
         antidote update
     fi
 }

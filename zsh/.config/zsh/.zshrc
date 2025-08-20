@@ -30,10 +30,13 @@ export COMPLETION_WAITING_DOTS="true"
 FPATH="$PATH_PREFIX/share/${ZDOTDIR}/site-functions:${FPATH}"
 autoload -Uz compinit && compinit -d "${XDG_STATE_HOME}/zsh/.zcompdump"
 autoload bashcompinit && bashcompinit
+
 complete -C "${PATH_PREFIX}/bin/aws_completer" aws
-if command -v register-python-argcomplete; then 
+
+if command -v register-python-argcomplete >/dev/null 2>/dev/null; then
     eval "$(register-python-argcomplete pipx)"
 fi
+
 complete -o nospace -C $PATH_PREFIX/bin/terraform terraform
 
 for custom in "${ZDOTDIR}"/user/**/*.zsh(N.); do
@@ -46,3 +49,5 @@ fi
 
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
+
+. "$HOME/.local/share/../bin/env"
