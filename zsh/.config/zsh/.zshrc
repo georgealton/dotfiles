@@ -18,17 +18,22 @@ if [[ -f "${PATH_PREFIX}/share/zsh-antidote/antidote.zsh" ]]; then
     source "${PATH_PREFIX}/share/zsh-antidote/antidote.zsh"
 elif [[ -f "${ZDOTDIR:-$HOME}/.antidote/antidote.zsh" ]]; then
     source "${ZDOTDIR:-$HOME}/.antidote/antidote.zsh"
+elif [[ -f "${HOME}/git/antidote/antidote.zsh" ]]; then
+    source "${HOME}/git/antidote/antidote.zsh"
 fi
 
 antidote load
 
 # Completions
 export COMPLETION_WAITING_DOTS="true"
+
 FPATH="$PATH_PREFIX/share/${ZDOTDIR}/site-functions:${FPATH}"
 autoload -Uz compinit && compinit
 autoload bashcompinit && bashcompinit
 complete -C "${PATH_PREFIX}/bin/aws_completer" aws
-eval "$(register-python-argcomplete pipx)"
+if command -v register-python-argcomplete; then 
+    eval "$(register-python-argcomplete pipx)"
+fi
 complete -o nospace -C $PATH_PREFIX/bin/terraform terraform
 
 for custom in "${ZDOTDIR}"/user/**/*.zsh(N.); do
@@ -43,4 +48,3 @@ eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 
 . "$HOME/.local/share/../bin/env"
-

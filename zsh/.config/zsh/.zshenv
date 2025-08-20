@@ -82,6 +82,7 @@ export CARGO_HOME="${XDG_DATA_HOME}"/cargo
 [ -f $CARGO_HOME/env ] && . "$CARGO_HOME/env"
 [[ -f $CARGO_ENV ]] && source "/home/george/.local/share/cargo/env"
 export RUSTUP_HOME="${XDG_DATA_HOME}"/rustup
+export PATH="$CARGO_HOME/bin:$PATH"
 
 # Zoxide
 export _ZO_DATA_DIR="${XDG_DATA_HOME}"/zoxide
