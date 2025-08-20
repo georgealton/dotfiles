@@ -37,6 +37,7 @@ output $dell scale 1.5
 output $thinkpad_display scale 1.25
 
 bindsym $mod+Return exec $term
+bindsym $mod+n exec $browser
 bindsym $mod+space exec $app_menu
 
 bindsym Control+q kill
