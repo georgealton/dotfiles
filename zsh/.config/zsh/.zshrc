@@ -57,3 +57,8 @@ eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 
 . "$HOME/.local/share/../bin/env"
+
+DEFAULT_TMUX_SESSION_NAME="default"
+if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+  tmux attach-session -t "$DEFAULT_TMUX_SESSION_NAME" || tmux new-session -s "$DEFAULT_TMUX_SESSION_NAME"
+fi
