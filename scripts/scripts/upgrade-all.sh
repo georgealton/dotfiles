@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env -S zsh -i
 
 echo "System Packages"
 sudo dnf upgrade \
