@@ -20,9 +20,7 @@ set $notifier 'mako'
 
 font pango:FiraCode 14
 
-# gaps inner 1
 smart_borders on
-# smart_gaps on
 default_border pixel
 
 floating_modifier $mod
@@ -120,8 +118,9 @@ bindsym $mod+Shift+t move container to workspace number $ws5
 
 ## Inputs
 ### brightness
-bindsym XF86MonBrightnessUp exec light -A 10
-bindsym XF86MonBrightnessDown exec light -U 10
+bindsym XF86MonBrightnessUp exec brightnessctl set '+10%' && '$HOME/scripts/bright.sh'
+bindsym XF86MonBrightnessDown exec brightnessctl set '10%-' && '$HOME/scripts/bright.sh'
+
 
 ### audio control
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
