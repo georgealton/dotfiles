@@ -118,14 +118,14 @@ bindsym $mod+Shift+t move container to workspace number $ws5
 
 ## Inputs
 ### brightness
-bindsym XF86MonBrightnessUp exec brightnessctl set '+10%' && '$HOME/scripts/bright.sh'
-bindsym XF86MonBrightnessDown exec brightnessctl set '10%-' && '$HOME/scripts/bright.sh'
+bindsym XF86MonBrightnessUp exec brightnessctl set '10%+'; exec '$HOME/scripts/bright.sh'
+bindsym XF86MonBrightnessDown exec brightnessctl set '10%-'; exec '$HOME/scripts/bright.sh'
 
 
 ### audio control
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && '$HOME/scripts/wp-vol.sh'
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% && '$HOME/scripts/wp-vol.sh'
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%; exec '$HOME/scripts/wp-vol.sh'
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%; exec '$HOME/scripts/wp-vol.sh'
 
 ### playerctl
 bindsym XF86AudioNext exec playerctl next && notify-send "Audio Next"
