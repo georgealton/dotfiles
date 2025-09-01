@@ -5,9 +5,10 @@ sudo dnf upgrade \
     --refresh \
     --color=always
 
+echo "Flatpak"
 flatpak update
 
-echo "nvim"
+echo "nvim plugins"
 declare -a plugin_update_commands=(
     'Lazy! sync'
     'MasonUpdate'
@@ -26,6 +27,7 @@ echo "uv"
 uv tool upgrade --all
 
 echo "cargo"
+# this commands parses all cargos installed packages and upgrades them
 # https://github.com/rust-lang/cargo/issues/2082#issuecomment-851346910
 cargo install --list | grep -v '^ ' | cut -d' ' -f 1 | xargs cargo install
 
