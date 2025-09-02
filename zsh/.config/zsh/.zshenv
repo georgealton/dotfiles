@@ -94,5 +94,8 @@ export GTK_THEME=Adwaita:dark
 ## Font
 export FREETYPE_PROPERTIES="cff:no-stem-darkening=0 autofitter:no-stem-darkening=0"
 
+## Electron
+export ELECTRON_OZONE_PLATFORM_HINT=auto
+
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PYENV_ROOT/bin:$PATH"
