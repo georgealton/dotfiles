@@ -12,3 +12,17 @@ padding=0
 default-timeout=0
 invisible=1
 ignore-timeout=1
+
+[app-name=wp-vol]
+layer=overlay
+history=0
+group-by=app-name
+# Hide the group-index
+format=<b>%s</b>\n%b
+
+[app-name=brightnessctl]
+layer=overlay
+history=0
+group-by=app-name
+# Hide the group-index
+format=<b>%s</b>\n%b
