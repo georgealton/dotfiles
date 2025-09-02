@@ -19,7 +19,7 @@
         "tray"
     ],
     "network": {
-        "interface": "*p*",
+        "interface": "w*p*",
         "format-disconnected": "",
         "format-wifi": "",
         "format-ethernet": "󰈀",
