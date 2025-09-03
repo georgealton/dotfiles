@@ -8,17 +8,14 @@ set $down j
 set $left h
 set $right l
 
-set $laptop_display "Lenovo Group Limited 0x40A9 Unknown"
-set $desktop_display "Virtual-1"
-set $dell "HDMI-A-1"
-
+# Application
 set $term 'ghostty'
 set $browser 'flatpak run app.zen_browser.zen'
 set $app_menu 'wofi --show drun'
 set $bar 'waybar'
 set $notifier 'mako'
 
-font pango:FiraCode 14 
+font pango:FiraCode 14
 
 smart_borders on
 default_border pixel
@@ -30,10 +27,18 @@ input type:keyboard {
     repeat_rate 50
 }
 
-output "*" bg ${HOME}/bg.png fill
-output $dell scale 1.5
-output $laptop_display scale 1.25
+# Output configuration
+set $laptop_display "California Institute of Technology 0x1405 Unknown"
+set $dell "HDMI-A-1"
 
+output {
+    * bg ~/bg.png fill
+    $dell scale 1.5
+    $laptop_display scale 2
+}
+
+
+# Quick Launchers
 bindsym $mod+Return exec $term
 bindsym $mod+n exec $browser
 bindsym $mod+space exec $app_menu
@@ -127,8 +132,10 @@ bindsym XF86AudioPlay exec playerctl play-pause && notify-send "Audio play/pause
 bindsym XF86AudioStop exec playerctl stop && notify-send "Audio Stop"
 
 ### laptop lid
-bindswitch --reload --locked lid:on output $laptop_display disable; exec systemctl mask --now fprintd
-bindswitch --reload --locked lid:off output $laptop_display enable; exec systemctl unmask fprintd
+bindswitch --reload --locked {
+    lid:on output $laptop_display disable; exec notify-send "lid closed" ; exec systemctl mask --now fprintd
+    lid:off output $laptop_display enable; exec notify-send "lid open" ; exec systemctl unmask fprintd
+}
 
 # screenshots
 bindsym $mod+s exec ~/scripts/screenshot.sh select-file
@@ -138,11 +145,12 @@ bindsym $mod+Shift+s exec ~/scripts/screenshot.sh select-copy
 bindsym $mod+Shift+c reload; exec notify-send --app-name "sway" "swaywm Config Reloaded" "~/.config/sway/config reloaded"
 
 # startup programs
-exec $notifier
-exec ~/.local/bin/autotiling-rs
-exec $bar
-exec $term
-exec wl-paste --watch cliphist store
+exec {
+    $notifier
+    ~/.local/bin/autotiling-rs
+    $bar
+    wl-paste --watch cliphist store
+}
 
 # clipboard history menu
 bindsym $mod+p exec cliphist list | wofi -S dmenu | cliphist decode | wl-copy
@@ -151,8 +159,11 @@ bindsym $mod+p exec cliphist list | wofi -S dmenu | cliphist decode | wl-copy
 bindsym $mod+o exec python ~/scripts/windows.py
 
 # apps
-exec 'gio launch /usr/share/applications/1password.desktop || 1password'
-exec 'gio launch /usr/share/applications/org.mozilla.Thunderbird.desktop || thunderbird'
-exec '$browser --new-window https://teams.microsoft.com'
-exec '$term --title=Newsboat -e newsboat'
-exec 'firefox --new-window https://beta.music.apple.com/gb/home'
+exec {
+    $term
+    'gio launch /usr/share/applications/1password.desktop || 1password'
+    'gio launch /usr/share/applications/org.mozilla.Thunderbird.desktop || thunderbird'
+    '$browser --new-window https://teams.microsoft.com'
+    '$term --title=Newsboat -e newsboat'
+    'firefox --new-window https://beta.music.apple.com/gb/home'
+}
