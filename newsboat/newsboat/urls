@@ -1,0 +1,22 @@
+"--- AWS ---"
+https://blogs.aws.amazon.com/security/blog/feed/recentPosts.rss "AWS" "Security"
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-cloudformation-user-guide-updates.rss "AWS" "CloudFormation"
+https://aws.amazon.com/about-aws/whats-new/recent/feed/ "~AWS Releases" "AWS"
+https://aws.amazon.com/blogs/aws/feed/ "AWS"
+https://www.allthingsdistributed.com/index.xml "AWS"
+https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-cloudformation-template-reference-updates.rss "AWS "CloudFormation"
+"--- Linux ---"
+https://lwn.net/headlines/rss "Linux"
+"--- GitHub ---"
+https://github.blog/changelog/feed/ "GitHub" 
+https://github.blog/feed/ "GitHub"
+"--- Tech ---"
+https://techblog.netflix.com/feeds/posts/default "Tech" "Netflix"
+https://www.codefiend.co.uk/rss.xml "Blogs" 
+https://martinfowler.com/feed.atom
+https://medium.com/feed/airbnb-engineering
+
+https://emilywebber.co.uk/feed/
+https://jacquiread.com/index.xml
+https://cutlefish.substack.com/feed
+https://andrewharmellaw.github.io/rss.xml
