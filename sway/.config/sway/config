@@ -34,7 +34,7 @@ set $dell "HDMI-A-1"
 output {
     * bg ~/bg.png fill
     $dell scale 1.5
-    $laptop_display scale 2
+    $laptop_display scale 2.5
 }
 
 
@@ -165,5 +165,5 @@ exec {
     'gio launch /usr/share/applications/org.mozilla.Thunderbird.desktop || thunderbird'
     '$browser --new-window https://teams.microsoft.com'
     '$term --title=Newsboat -e newsboat'
-    'firefox --new-window https://beta.music.apple.com/gb/home'
+    '$browser --new-window https://beta.music.apple.com/gb/home'
 }
