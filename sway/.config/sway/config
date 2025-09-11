@@ -29,7 +29,7 @@ input type:keyboard {
 
 # Output configuration
 set $laptop_display "California Institute of Technology 0x1405 Unknown"
-set $dell "Dell Inc. DELL U2515H 9X2VY56G1CL"
+set $dell "Dell Inc. DELL U2515H 9X2VY56G1C3L"
 
 output {
     * bg ~/bg.png fill
