@@ -27,6 +27,12 @@ input type:keyboard {
     repeat_rate 50
 }
 
+input type:touchpad {
+    # disables "disable while typing (dwt) allowing the touchpad to be used 
+    # whilst pressing keys. Import for gaming. 
+    dwt disabled
+}
+
 # Output configuration
 set $laptop_display "California Institute of Technology 0x1405 Unknown"
 set $dell "Dell Inc. DELL U2515H 9X2VY56G1C3L"
