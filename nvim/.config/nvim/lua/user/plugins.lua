@@ -3,6 +3,10 @@ return require('lazy').setup({
     'mbbill/undotree',
     'vim-test/vim-test',
     {
+        "mason-org/mason.nvim",
+        opts = {}
+    },
+    {
         "ThePrimeagen/refactoring.nvim",
         dependencies = {
             "nvim-lua/plenary.nvim",
