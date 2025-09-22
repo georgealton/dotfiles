@@ -68,15 +68,6 @@ return require('lazy').setup({
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
     {
-        'VonHeikemen/lsp-zero.nvim',
-        branch = 'v2.x',
-        dependencies = {
-            { 'neovim/nvim-lspconfig' },
-            { 'williamboman/mason.nvim',          build = ":MasonUpdate", opts = {} },
-            { 'williamboman/mason-lspconfig.nvim' },
-        }
-    },
-    {
         'lewis6991/gitsigns.nvim',
         dependencies = { 'nvim-lua/plenary.nvim' },
         config = function() require('gitsigns').setup() end

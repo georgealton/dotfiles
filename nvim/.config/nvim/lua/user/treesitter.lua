@@ -22,7 +22,7 @@ require 'nvim-treesitter.configs'.setup {
 local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
 parser_config.guard = {
     install_info = {
-        url = "~/work/tree-sitter-guard", -- local path or git repo
+        url = "~/work/tree-sitter-cloudformation-guard/", -- local path or git repo
         files = {
             "src/parser.c",
             "src/scanner.c"
