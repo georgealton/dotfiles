@@ -41,3 +41,5 @@ vim.lsp.config["cloudformation"] = {
 }
 
 vim.lsp.enable("cloudformation")
+
+require("mason-lspconfig").setup()
