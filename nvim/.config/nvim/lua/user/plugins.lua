@@ -1,7 +1,16 @@
 return require('lazy').setup({
     'github/copilot.vim',
-    'mbbill/undotree',
     'vim-test/vim-test',
+    {
+        "greggh/claude-code.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim"
+        }
+        ,
+        config = function()
+            require("claude-code").setup()
+        end
+    },
     {
         "mason-org/mason.nvim",
         opts = {}
@@ -17,8 +26,7 @@ return require('lazy').setup({
     {
         "ThePrimeagen/refactoring.nvim",
         dependencies = {
-            "nvim-lua/plenary.nvim",
-            "nvim-treesitter/nvim-treesitter",
+            "lewis6991/async.nvim",
         },
         lazy = false,
         opts = {},
@@ -74,7 +82,7 @@ return require('lazy').setup({
         'nvim-lualine/lualine.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons' }
     },
-    { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate", lazy = false },
+    -- { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate", lazy = false },
     {
         'nvim-telescope/telescope.nvim',
         dependencies = { 'nvim-lua/plenary.nvim' }

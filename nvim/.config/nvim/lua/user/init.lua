@@ -1,6 +1,5 @@
 require('user.plugins')
 require('user.autocommand')
-require('user.treesitter')
 require('user.mappings')
 require('user.set')
 require('user.filetype')
