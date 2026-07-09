@@ -1,6 +1,5 @@
 return require('lazy').setup({
     'github/copilot.vim',
-    'vim-test/vim-test',
     {
         "greggh/claude-code.nvim",
         dependencies = {
@@ -11,10 +10,7 @@ return require('lazy').setup({
             require("claude-code").setup()
         end
     },
-    {
-        "mason-org/mason.nvim",
-        opts = {}
-    },
+    { "mason-org/mason.nvim", opts = {} },
     {
         "mason-org/mason-lspconfig.nvim",
         opts = {},
@@ -82,7 +78,6 @@ return require('lazy').setup({
         'nvim-lualine/lualine.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons' }
     },
-    -- { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate", lazy = false },
     {
         'nvim-telescope/telescope.nvim',
         dependencies = { 'nvim-lua/plenary.nvim' }
@@ -92,10 +87,7 @@ return require('lazy').setup({
         dependencies = { 'nvim-lua/plenary.nvim' },
         config = function() require('gitsigns').setup() end
     },
-    {
-        "rose-pine/neovim",
-        name = "rose-pine"
-    },
+    { "rose-pine/neovim", name = "rose-pine" },
     {
         'stevearc/oil.nvim',
         opts = {

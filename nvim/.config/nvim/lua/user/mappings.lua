@@ -1,5 +1,8 @@
 vim.g.mapleader = " "
 
+-- LSP
+vim.keymap.set("n", "grd", ":lua vim.lsp.buf.definition()<CR>")
+
 --  Telescope
 vim.keymap.set("n", "<leader>fg", ":Telescope live_grep theme=ivy<CR>")
 vim.keymap.set("n", "<leader>ft", ":Telescope theme=ivy<CR>")

@@ -55,6 +55,10 @@
 [gpg]
   format = ssh
 
+[rerere]
+  enabled = true
+  autoupdate = true
+
 [gpg "ssh"]
   program = "/opt/1Password/op-ssh-sign"
   ; program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
@@ -68,5 +72,52 @@
   process = git-lfs filter-process
   required = true
   clean = git-lfs clean -- %f
+
 [pull]
-	rebase = true
+  rebase = true
+
+[rebase]
+  autosquash = true
+  autostash = true
+
+[merge]
+	tool = "nvim"
+
+[mergetool]
+	keepBackup = false
+	prompt = false
+
+[mergetool "nvim"]
+	cmd = "nvim -d -c \"wincmd l\" -c \"norm ]c\" \"$LOCAL\" \"$MERGED\" \"$REMOTE\""
+
+
+[alias]
+  s = status -sbM
+  last = log -1 HEAD --stat
+  ll = log --all --decorate --graph --oneline
+  co = checkout
+  branches = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
+  undo = reset HEAD~1 --mixed
+  prune-branches = !git branch --merged | grep -v '\\*\\|main\\|develop' | xargs -n 1 git branch -d
+  wip = !git add -A && git commit -m "WIP: $(date +%Y-%m-%d-%H:%M:%S)"
+  rewrite-branch = !git rebase -i $(git merge-base main HEAD)
+  create = switch --create
+  sw = "!f() { \
+        TARGET=$(git branches | fzf \
+            --tmux \
+            --no-multi \
+            --no-preview \
+            --height '30%' \
+        | awk '{print $2}'); \
+    git switch $TARGET; \
+}; f"
+  fixup = "!f() { \
+        TARGET=$(git log --oneline -n 20 | fzf \
+            --tmux \
+            --no-multi \
+            --no-preview \
+            --height '30%' \
+        | awk '{print $1}'); \
+    git commit --fixup=$TARGET; \
+}; git add --patch && f && git rebase --interactive --autosquash"
+
