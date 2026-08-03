@@ -58,24 +58,24 @@ set_task() {
     local status="$3"
 
     update_state \
-        --arg id "$id" \
-        --arg subject "$subject" \
-        --arg status "$status" \
         '.tasks[$id] = {
             subject: $subject,
             status: $status
-        }'
+        }' \
+        --arg id "$id" \
+        --arg subject "$subject" \
+        --arg status "$status"
 }
 
 complete_task() {
     local id="$1"
 
     update_state \
-        --arg id "$id" \
         'if .tasks[$id]
          then .tasks[$id].status = "completed"
          else .
-         end'
+         end' \
+        --arg id "$id"
 }
 
 set_agent() {
@@ -84,24 +84,24 @@ set_agent() {
     local status="$3"
 
     update_state \
-        --arg id "$id" \
-        --arg name "$name" \
-        --arg status "$status" \
         '.agents[$id] = {
             name: $name,
             status: $status
-        }'
+        }' \
+        --arg id "$id" \
+        --arg name "$name" \
+        --arg status "$status"
 }
 
 complete_agent() {
     local id="$1"
 
     update_state \
-        --arg id "$id" \
         'if .agents[$id]
          then .agents[$id].status = "completed"
          else .
-         end'
+         end' \
+        --arg id "$id"
 }
 
 render() {
@@ -296,31 +296,22 @@ on_session_end() {
     rm -f "$state" "$notification_id"
 }
 
-case "$event" in
-SessionEnd)
-    (
-        flock -x 9
-        on_session_end
-    ) 9>"$lock"
-    ;;
+(
+    flock -x 9
 
-*)
-    (
-        flock -x 9
-        init_state
+    [[ "$event" == "SessionEnd" ]] || init_state
 
-        case "$event" in
-        UserPromptSubmit) on_prompt ;;
-        TaskCreated) on_task_created ;;
-        TaskCompleted) on_task_completed ;;
-        SubagentStart) on_agent_started ;;
-        SubagentStop) on_agent_stopped ;;
-        PermissionRequest) on_permission_request ;;
-        Notification) on_notification ;;
-        Stop) on_stop ;;
-        StopFailure) on_stop_failure ;;
-        *) ;;
-        esac
-    ) 9>"$lock"
-    ;;
-esac
+    case "$event" in
+    UserPromptSubmit) on_prompt ;;
+    TaskCreated) on_task_created ;;
+    TaskCompleted) on_task_completed ;;
+    SubagentStart) on_agent_started ;;
+    SubagentStop) on_agent_stopped ;;
+    PermissionRequest) on_permission_request ;;
+    Notification) on_notification ;;
+    Stop) on_stop ;;
+    StopFailure) on_stop_failure ;;
+    SessionEnd) on_session_end ;;
+    *) ;;
+    esac
+) 9>"$lock"
