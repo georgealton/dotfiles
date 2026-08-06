@@ -1,8 +1,10 @@
 alias cat='bat'
-alias ls='eza --icons'
+alias ls='eza --icons auto'
 alias tree='ls --tree'
 alias vim='nvim'
 alias vi='vim'
+
+alias claude="$HOME/git/claude-container/sandbox.sh"
 
 
 if command -v gmake > /dev/null; then

@@ -6,6 +6,7 @@ export EDITOR="nvim"
 export VISUAL="$EDITOR"
 
 export BROWSER="flatpak run app.zen_browser.zen"
+export DO_NOT_TRACK=1
 
 # XDG DIRS
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -99,3 +100,6 @@ export ELECTRON_OZONE_PLATFORM_HINT=auto
 
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PYENV_ROOT/bin:$PATH"
+
+## Claude
+export CLAUDE_CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/claude"
