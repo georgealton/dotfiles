@@ -98,6 +98,7 @@
   co = checkout
   branches = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
   undo = reset HEAD~1 --mixed
+  unstage = reset HEAD --
   prune-branches = !git branch --merged | grep -v '\\*\\|main\\|develop' | xargs -n 1 git branch -d
   wip = !git add -A && git commit -m "WIP: $(date +%Y-%m-%d-%H:%M:%S)"
   rewrite-branch = !git rebase -i $(git merge-base main HEAD)
