@@ -1,9 +1,7 @@
 #!/usr/bin/env -S zsh -i
 
 echo "System Packages"
-sudo dnf upgrade \
-    --refresh \
-    --color=always
+sudo dnf upgrade --refresh --color=always
 
 echo "Flatpak"
 flatpak update
@@ -12,7 +10,6 @@ echo "nvim plugins"
 declare -a plugin_update_commands=(
     'Lazy! sync'
     'MasonUpdate'
-    'TSUpdateSync'
 )
 # MasonUpdate doesn't pull in new LSPs, it just updates the registry
 for command in "${plugin_update_commands[@]}"; do
