@@ -14,6 +14,8 @@ set $browser 'flatpak run app.zen_browser.zen'
 set $app_menu 'wofi --show drun'
 set $bar 'waybar'
 set $notifier 'mako'
+set $scripts ~/scripts
+set $wallpaper ~/bg.png
 
 font pango:FiraCode 14
 
@@ -33,16 +35,8 @@ input type:touchpad {
     dwt disabled
 }
 
-# Output configuration
-set $laptop_display "California Institute of Technology 0x1405 Unknown"
-set $dell "Dell Inc. DELL U2515H 9X2VY56G1C3L"
-
-output {
-    * bg ~/bg.png fill
-    $dell scale 1.5
-    $laptop_display scale 2.5
-}
-
+# Wallpaper
+output * bg $wallpaper fill
 
 # Quick Launchers
 bindsym $mod+Return exec $term
@@ -123,13 +117,13 @@ bindsym $mod+Shift+t move container to workspace number 5
 
 ## Inputs
 ### brightness
-bindsym XF86MonBrightnessUp exec brightnessctl set '10%+' && ~/scripts/bright.sh
-bindsym XF86MonBrightnessDown exec brightnessctl set '10%-' && ~/scripts/bright.sh
+bindsym XF86MonBrightnessUp exec brightnessctl set '10%+' && $scripts/bright.sh
+bindsym XF86MonBrightnessDown exec brightnessctl set '10%-' && $scripts/bright.sh
 
 ### audio control
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && ~/scripts/wp-vol.sh
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% && ~/scripts/wp-vol.sh
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && $scripts/wp-vol.sh
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% && $scripts/wp-vol.sh
 
 ### playerctl
 bindsym XF86AudioNext exec playerctl next && notify-send "Audio Next"
@@ -139,13 +133,13 @@ bindsym XF86AudioStop exec playerctl stop && notify-send "Audio Stop"
 
 ### laptop lid
 bindswitch --reload --locked {
-    lid:on output $laptop_display disable; exec notify-send "lid closed" ; exec systemctl mask --now fprintd
-    lid:off output $laptop_display enable; exec notify-send "lid open" ; exec systemctl unmask fprintd
+    lid:on exec notify-send "lid closed" ; exec systemctl mask --now fprintd
+    lid:off exec notify-send "lid open" ; exec systemctl unmask fprintd
 }
 
 # screenshots
-bindsym $mod+s exec ~/scripts/screenshot.sh select-file
-bindsym $mod+Shift+s exec ~/scripts/screenshot.sh select-copy
+bindsym $mod+s exec $scripts/screenshot.sh select-file
+bindsym $mod+Shift+s exec $scripts/screenshot.sh select-copy
 
 # reload the configuration file
 bindsym $mod+Shift+c reload; exec notify-send --app-name "sway" "swaywm Config Reloaded" "~/.config/sway/config reloaded"
@@ -155,6 +149,7 @@ exec {
     $notifier
     ~/.local/bin/autotiling-rs
     $bar
+    kanshi
     wl-paste --watch cliphist store
 }
 
@@ -162,7 +157,7 @@ exec {
 bindsym $mod+p exec cliphist list | wofi -S dmenu | cliphist decode | wl-copy
 
 # windows
-bindsym $mod+o exec python ~/scripts/windows.py
+bindsym $mod+o exec python $scripts/windows.py
 
 # apps
 exec {

@@ -1,0 +1,8 @@
+profile docked {
+    output "Dell Inc. DELL U2515H 9X2VY56G1C3L" enable scale 1.5
+    output "California Institute of Technology 0x1405 Unknown" disable
+}
+
+profile laptop {
+    output "California Institute of Technology 0x1405 Unknown" enable scale 2.5
+}
