@@ -18,6 +18,11 @@ window {
     
 }
 
+#input > image.left {
+    -gtk-icon-transform: scaleX(0);
+    margin-right: -16px;
+}
+
 #inner-box {
     margin: 0px;
     border: none;
@@ -50,9 +55,24 @@ window {
     outline: none;
 }
 
-#entry:selected * {
+#entry:selected #text {
+    color: #191724;
+}
+
+#expander-box #entry {
+    background-color: #26233a;
+    color: #e0def4;
+}
+
+#expander-box #entry #text {
+    color: #e0def4;
+}
+
+#expander-box #entry:selected {
     background-color: #eb6f92;
     color: #191724;
-    border-radius: 0px;;
-    outline: none;
+}
+
+#expander-box #entry:selected #text {
+    color: #191724;
 }

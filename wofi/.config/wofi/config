@@ -4,3 +4,4 @@ term=WezTerm
 allow_markup=true
 prompt=Search
 gtk_dark=true
+key_expand=Right
