@@ -18,6 +18,9 @@ export LESSHISTFILE="$XDG_STATE_HOME/less/history"
 export TERMINFO="${XDG_DATA_HOME}/terminfo"
 export TERMINFO_DIRS="${XDG_DATA_HOME}/terminfo:/usr/share/terminfo"
 
+# TMUX
+export TMUX_TMPDIR="${XDG_RUNTIME_DIR:-/run/user/$UID}/tmux"
+
 # Starship prompt
 export STARSHIP_CONFIG="${XDG_CONFIG_HOME}/starship/starship.toml"
 
