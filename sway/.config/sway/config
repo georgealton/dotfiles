@@ -76,10 +76,10 @@ mode "resize" {
 }
 
 # Window Rules
-for_window [app_id="thunderbird"] move container to workspace 2
-for_window [title=".*Microsoft Teams"] move container to workspace 3
-for_window [title="Newsboat"] move container to workspace 4
-for_window [app_id="firefox" title="Apple Music.*" ] move container to workspace 5
+assign [app_id="thunderbird"] workspace number 2
+assign [title=".*Microsoft Teams"] workspace number 3
+assign [title="Newsboat"] workspace number 4
+assign [app_id="firefox" title="Apple Music.*"] workspace number 5
 for_window [app_id=".*pavucontrol$"] floating enable, sticky enable
 for_window [app_id="blueman-manager"] floating enable, sticky enable
 for_window [title="Picture-in-Picture"] floating enable, resize set width 640px height 360px
@@ -121,21 +121,15 @@ bindsym XF86MonBrightnessUp exec brightnessctl set '10%+' && $scripts/bright.sh
 bindsym XF86MonBrightnessDown exec brightnessctl set '10%-' && $scripts/bright.sh
 
 ### audio control
-bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && $scripts/wp-vol.sh
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% && $scripts/wp-vol.sh
+bindsym --locked XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym --locked XF86AudioRaiseVolume exec wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+ && $scripts/wp-vol.sh
+bindsym --locked XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && $scripts/wp-vol.sh
 
 ### playerctl
-bindsym XF86AudioNext exec playerctl next && notify-send "Audio Next"
-bindsym XF86AudioPrev exec playerctl previous && notify-send "Audio Previous"
-bindsym XF86AudioPlay exec playerctl play-pause && notify-send "Audio play/pause"
-bindsym XF86AudioStop exec playerctl stop && notify-send "Audio Stop"
-
-### laptop lid
-bindswitch --reload --locked {
-    lid:on exec notify-send "lid closed" ; exec systemctl mask --now fprintd
-    lid:off exec notify-send "lid open" ; exec systemctl unmask fprintd
-}
+bindsym --locked XF86AudioNext exec playerctl next && notify-send "Audio Next"
+bindsym --locked XF86AudioPrev exec playerctl previous && notify-send "Audio Previous"
+bindsym --locked XF86AudioPlay exec playerctl play-pause && notify-send "Audio play/pause"
+bindsym --locked XF86AudioStop exec playerctl stop && notify-send "Audio Stop"
 
 # screenshots
 bindsym $mod+s exec $scripts/screenshot.sh select-file
@@ -150,6 +144,7 @@ exec {
     ~/.local/bin/autotiling-rs
     $bar
     kanshi
+    swayidle -w timeout 300 'swaylock -f' timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' before-sleep 'swaylock -f'
     wl-paste --watch cliphist store
 }
 
