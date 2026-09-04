@@ -21,6 +21,7 @@ font pango:FiraCode 14
 
 smart_borders on
 default_border pixel
+focus_on_window_activation smart
 
 floating_modifier $mod
 
@@ -45,6 +46,7 @@ bindsym $mod+space exec $app_menu
 
 bindsym Control+q kill
 bindsym $mod+f fullscreen toggle
+bindsym $mod+Ctrl+l exec swaylock -f
 
 # change focus
 bindsym $mod+$left focus left
@@ -66,10 +68,15 @@ bindsym $mod+Bar split h
 # Resize Mode
 bindsym $mod+Escape mode resize
 mode "resize" {
-    bindsym $left resize shrink width 10 ppt
-    bindsym $down resize grow height 10 ppt
-    bindsym $up resize shrink height 10 ppt
-    bindsym $right resize grow width 10 ppt
+    bindsym $left resize shrink width 10 px
+    bindsym $down resize grow height 10 px
+    bindsym $up resize shrink height 10 px
+    bindsym $right resize grow width 10 px
+
+    bindsym Left resize shrink width 10 px
+    bindsym Down resize grow height 10 px
+    bindsym Up resize shrink height 10 px
+    bindsym Right resize grow width 10 px
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -144,7 +151,7 @@ exec {
     ~/.local/bin/autotiling-rs
     $bar
     kanshi
-    swayidle -w timeout 300 'swaylock -f' timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' before-sleep 'swaylock -f'
+    swayidle -w timeout 300 'swaylock -f' timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' lock 'swaylock -f' before-sleep 'swaylock -f'
     wl-paste --watch cliphist store
 }
 
